@@ -1,19 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Restaurant-Advisor</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Core theme CSS (includes Bootstrap)-->
 </head>
-<body>
-    <h2>Registro de Usuario</h2>
-  <form method="POST" action="">
+
+<body id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+      <div class="container">
+          <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+          <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              Menu
+              <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ms-auto">
+                  {% if user.is_authenticated %}
+                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'logout' %}">Logout</a></li>
+                  {% else %}
+                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'login' %}">Login</a></li>
+                  <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'register' %}">Sign up</a></li>
+                  {% endif %}
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+ <!-- Contact Section-->
+ <section class="page-section" id="contact">
+  <div class="container">
+      <!-- Contact Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Register</h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+          <div class="divider-custom-line"></div>
+      </div>
+      <!-- Contact Section Form-->
+      <div class="row justify-content-center">
+          <div class="col-lg-8 col-xl-7">
+  <form method="POST" action="/register/">
     {% csrf_token %}
 
-    {{ form.as_p }}
-    
-    <button type="submit">Registrarse</button>
-  </form>
-  <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar sesión</a></p>
+
+  <!-- Name input-->
+  <div class="form-floating mb-3">
+      <input class="form-control" id="username" name="username" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+      <label for="name">Username</label>
+      <div class="invalid-feedback" data-sb-feedback="name:required">A username is required.</div>
+  </div>
+  <!-- Email address input-->
+  <div class="form-floating mb-3">
+      <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" data-sb-validations="email" />
+      <label for="email">Email address (optional)</label>
+      <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+  </div>
+  <!-- Password input-->
+  <div class="form-floating mb-3">
+    <input class="form-control" id="password" name="password" type="password" placeholder=""/>
+    <label for="password">Password</label>
+    <div class="invalid-feedback" data-sb-feedback="phone:required">A password is required.</div>
+</div>
+<!-- Password again input-->
+<div class="form-floating mb-3">
+  <input class="form-control" type="password" id="password2" name="password2" placeholder=""/>
+  <label for="password2">Password (again)</label>
+  <div class="invalid-feedback" data-sb-feedback="phone:required">A password is required.</div>
+</div>
+  
+  <!-- Submit success message-->
+  <!---->
+  <!-- This is what your users will see when the form-->
+  <!-- has successfully submitted-->
+  <div class="d-none" id="submitSuccessMessage">
+      <div class="text-center mb-3">
+          <div class="fw-bolder">Form submission successful!</div>
+          To activate this form, sign up at
+          <br />
+          <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+      </div>
+  </div>
+
+   <!-- Submit error message-->
+  <!---->
+  <!-- This is what your users will see when there is-->
+  <!-- an error submitting the form-->
+  <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+  <!-- Submit Button-->
+  <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button>
+
+  <p>Do you already have an account?<a href="{% url 'login' %}">Sign in</a></p>
+
+</form>
+</section>
+  <!-- Footer-->
+  <footer class="footer text-center">
+    <div class="container">
+        <div class="row">
+            <!-- Footer Social Icons-->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h4 class="text-uppercase mb-4">Around the Web</h4>
+                <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
+                <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Copyright Section-->
+<div class="copyright py-4 text-center text-white">
+    <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
+</div>
 </body>
 </html>

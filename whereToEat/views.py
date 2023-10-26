@@ -4,6 +4,7 @@ from django.template import Template, Context
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -24,15 +25,22 @@ def index(request):
 
 
 def register(request):
-    form = UserCreationForm()
-
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
+
+        username = request.POST['username']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+        email = request.POST['email']
+        
+        if password != password2:
+            messages.error(request, "Passwords do not match.")
+            return redirect('registration/register.html')
+
+        myuser = User.objects.create_user(username=username, email=email, password=password)
+        myuser.save()
+        messages.success(request, "Your Account has been successfully created.")
         return redirect('index')
-    context = {'form':form}
-    return render(request, 'registration/register.html', context)
+    return render(request, 'registration/register.html')
 
 
 def login_view(request):
@@ -44,7 +52,8 @@ def login_view(request):
             login(request, user)
             return render(request, 'index.html')
         else:
-            messages.error(request, 'Credenciales inválidas. Por favor, inténtalo de nuevo.')
+            messages.error(request, 'Bad Credentials!')
+            return redirect("index")
     return render(request, 'registration/login.html')
 
 
