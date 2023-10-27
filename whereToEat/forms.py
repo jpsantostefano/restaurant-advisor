@@ -1,8 +1,8 @@
-from .models import CustomUser
+from .models import Comment
 from django import forms
 
 
-class CustomUserCreationForm(forms.ModelForm):
-     class Meta:
-        model = CustomUser
-        fields = ['username','password']
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']

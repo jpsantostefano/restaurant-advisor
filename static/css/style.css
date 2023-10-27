@@ -7644,6 +7644,15 @@ textarea.form-control-lg {
   margin-bottom: 0 !important;
 }
 
+.mb-0-register-login {
+  margin-bottom: 0 !important;
+  margin-top: 100px;
+}
+
+.login-h2{
+  margin-top: 100px;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem !important;
 }

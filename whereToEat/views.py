@@ -1,10 +1,13 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.http import HttpResponse, HttpResponsePermanentRedirect
 from django.template import Template, Context
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.views import generic, View
+from .forms import CommentForm
+from .models import Comment
 
 
 # Create your views here.
@@ -22,6 +25,32 @@ def index(request):
     #Rendering the document
     document = template.render(context)
     return HttpResponse(document)
+
+def prueba(request):
+    #Open the document
+    prueba = open("templates/prueba.html")
+    #Load the document
+    template = Template(prueba.read())
+    #Close the document
+    prueba.close()
+    #Create a context
+    context = Context()
+    #Rendering the document
+    document = template.render(context)
+    return HttpResponse(document)
+
+def add_comment(request, post_id):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user  # Asigna el usuario actual al comentario
+            comment.post_id = post_id    # Asigna el post al comentario
+            comment.save()
+            return redirect('prueba', post_id=post_id)  # Redirige a la página de detalles del post
+    else:
+        form = CommentForm()
+    return render(request, 'prueba', {'form': form})
 
 
 def register(request):
