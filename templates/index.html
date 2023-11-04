@@ -16,12 +16,13 @@
         <link rel="stylesheet" href="/static/css/style.css">
         <!-- Core theme CSS (includes Bootstrap)-->
     </head>
-
+    
+        
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">Home</a>
+                <a class="navbar-brand" href="{% url 'index' %}">Home</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -29,17 +30,19 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         {% if user.is_authenticated %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'logout' %}">Logout</a></li>
+                        <li class="nav-item mx-0 mx-lg-1 navbar-brand"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'logout' %}">Logout</a></li>
                         {% else %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'login' %}">Login</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'register' %}">Sign up</a></li>
+                        <li class="nav-item mx-0 mx-lg-1 navbar-brand"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'login' %}">Login</a></li>
+                        <li class="nav-item mx-0 mx-lg-1 navbar-brand"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'register' %}">Sign up</a></li>
                         {% endif %}
                     </ul>
                 </div>
             </div>
         </nav>
+    
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
+    
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
                 <!-- Masthead Heading-->
@@ -51,37 +54,40 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+                <p class="masthead-subheading font-weight-light mb-0">Your best review restaurants web</p>
             </div>
         </header>
-        
+    
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary">Selected Restaurants</h2>
+                
 
                 <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
                 {% for post in posts %}
-                <div>
+                
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="portfolio-item mx-auto">             
                         <h2>{{ post.title }}</h2> <!-- This refers to models.py title -->
                         
 
                         <p>{{ post.intro }}</p>
                         <a href="{% url 'post_detail' post.slug %}">Reviews</a>
+                    </div>        
                 </div>
-                {% endfor %}
                 
+            
+                {% endfor %}
+            </div>
                 
                 
             </div>
+            
         </section>
+        
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container">
@@ -101,6 +107,7 @@
         <div class="copyright py-4 text-center text-white">
             <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
         </div>
+          
     </body>
 </html>
 

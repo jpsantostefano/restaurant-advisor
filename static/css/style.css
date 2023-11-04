@@ -8044,6 +8044,7 @@ textarea.form-control-lg {
 .text-secondary {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+  padding-bottom: 60px;
 }
 
 .text-success {
@@ -10970,7 +10971,7 @@ html {
 }
 
 .masthead {
-  padding-top: calc(6rem + 74px);
+  padding-top: 6rem;
   padding-bottom: 6rem;
 }
 .masthead .masthead-heading {
@@ -10986,7 +10987,7 @@ html {
 
 @media (min-width: 992px) {
   .masthead {
-    padding-top: calc(6rem + 104px);
+    padding-top: 6rem;
     padding-bottom: 6rem;
   }
   .masthead .masthead-heading {
