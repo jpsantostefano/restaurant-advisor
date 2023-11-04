@@ -7,7 +7,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.views import generic, View
 from .forms import CommentForm
-from .models import Comment
+from .models import Comment, Post
+from django.db import models
 
 
 # Create your views here.
@@ -37,20 +38,28 @@ def prueba(request):
     context = Context()
     #Rendering the document
     document = template.render(context)
-    return HttpResponse(document)
-
-def add_comment(request, post_id):
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
+    
+   
+    
+    if request.method =='post':
+        form = CommentForm(request.Post)
+        
         if form.is_valid():
-            comment = form.save(commit=False)
-            comment.user = request.user  # Asigna el usuario actual al comentario
-            comment.post_id = post_id    # Asigna el post al comentario
-            comment.save()
-            return redirect('prueba', post_id=post_id)  # Redirige a la página de detalles del post
+            obj = form.save(commit=False)
+            obj.post = post
+            obj.save()
+            return redirect('templates/prueba.html', slug=post.slug)
     else:
         form = CommentForm()
-    return render(request, 'prueba', {'form': form})
+
+    context = {
+        'post': Post,
+        'form': form,
+    }
+
+    return render(request, 'prueba.html', context)
+
+
 
 
 def register(request):
@@ -90,3 +99,7 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'Successfull logout')
     return redirect('index')
+
+
+
+   

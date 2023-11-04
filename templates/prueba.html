@@ -8,7 +8,25 @@
     <title>Document</title>
 </head>
 <body>
- 
-   
+    <p>prueba</p>
+    <div class="container-fluid">
+        <img src="https://static.eldiario.es/clip/0871c40b-b29d-417c-9ade-fd9701489f0c_16-9-discover-aspect-ratio_default_0.jpg">
+    </div>              
+
+    <h2>Comments</h2>
+    {% for comment in comments %}
+        <article>
+            <strong>{{ comment.name }} at {{ comment.date_added }}</strong><br>
+            {{ comment.body }}
+        </article>
+    {% endfor %}
+    <h2>Add a comment</h2>
+
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_table }}
+
+        <input type="submit" value="Add a comment">
+    </form>
 </body>
 </html>
