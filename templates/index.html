@@ -66,29 +66,20 @@
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
+
                 <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto">             
-                            <a href="{% url 'prueba' %}"><img class="img-fluid" src="https://static.eldiario.es/clip/0871c40b-b29d-417c-9ade-fd9701489f0c_16-9-discover-aspect-ratio_default_0.jpg" alt="barbacue" /></a>
-                        </div>
-                    </div>
-                     
-                    <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">             
-                            <img class="img-fluid" src="https://media-cdn.tripadvisor.com/media/photo-s/18/52/63/ef/rodizio.jpg" alt="cake" />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                            <img class="img-fluid" src="https://www.lavoz.com.ar/resizer/KN7CtNQTOgeWCoZd0gQraNSfWQ8=/980x640/smart/filters:quality(75):format(webp)/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/3BYHRHYV4NDKXC3R2ZAKD4VCCI.jpg" alt="..." />
-                        </div>
-                    </div>
-                    
+                {% for post in posts %}
+                <div>
+                        <h2>{{ post.title }}</h2> <!-- This refers to models.py title -->
+                        
+
+                        <p>{{ post.intro }}</p>
+                        <a href="{% url 'post_detail' post.slug %}">Reviews</a>
                 </div>
+                {% endfor %}
+                
+                
+                
             </div>
         </section>
         <!-- Footer-->

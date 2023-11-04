@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.views import generic, View
 from .forms import CommentForm
-from .models import Comment, Post
+from .models import Post, Comment
 from django.db import models
 
 
@@ -15,49 +15,46 @@ from django.db import models
 
 
 def index(request):
-    #Open the document
-    index = open("templates/index.html")
-    #Load the document
-    template = Template(index.read())
-    #Close the document
-    index.close()
-    #Create a context
-    context = Context()
-    #Rendering the document
-    document = template.render(context)
-    return HttpResponse(document)
+    posts = Post.objects.all()
+    return render(request, 'index.html', {'posts': posts})
 
-def prueba(request):
-    #Open the document
-    prueba = open("templates/prueba.html")
-    #Load the document
-    template = Template(prueba.read())
-    #Close the document
-    prueba.close()
-    #Create a context
-    context = Context()
-    #Rendering the document
-    document = template.render(context)
-    
-   
-    
-    if request.method =='post':
-        form = CommentForm(request.Post)
-        
+
+def post_detail(request, slug):
+    post = Post.objects.get(slug=slug)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+
         if form.is_valid():
-            obj = form.save(commit=False)
-            obj.post = post
-            obj.save()
-            return redirect('templates/prueba.html', slug=post.slug)
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+
+            return redirect('post_detail', slug=post.slug)
     else:
-        form = CommentForm()
+            form = CommentForm()
+    return render(request, 'post_detail.html', {'post':post, 'form': form})
 
-    context = {
-        'post': Post,
-        'form': form,
-    }
+    # post = Post.objects.get(slug=slug)
+    # return render(request, 'restaurant1.html', {'post' : post})
+    
+    # if request.method =='post':
+    #     form = CommentForm(request.Post)
+        
+    #     if form.is_valid():
+    #         obj = form.save(commit=False)
+    #         obj.post = post
+    #         obj.save()
+    #         return redirect('templates/prueba.html', slug=post.slug)
+    # else:
+    #     form = CommentForm()
 
-    return render(request, 'prueba.html', context)
+    # context = {
+    #     'post': Post,
+    #     'form': form,
+    # }
+
+    # return render(request, 'prueba.html', context)
 
 
 

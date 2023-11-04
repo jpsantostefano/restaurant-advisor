@@ -18,7 +18,6 @@ from django.urls import include, path
 from whereToEat import views
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
@@ -26,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('summernote/', include('django_summernote.urls')),
-    path('prueba/', views.prueba, name='prueba'),
+    path('<slug:slug>/', views.post_detail, name='post_detail'),
+    
     
 ]
