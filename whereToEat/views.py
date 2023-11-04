@@ -35,28 +35,6 @@ def post_detail(request, slug):
             form = CommentForm()
     return render(request, 'post_detail.html', {'post':post, 'form': form})
 
-    # post = Post.objects.get(slug=slug)
-    # return render(request, 'restaurant1.html', {'post' : post})
-    
-    # if request.method =='post':
-    #     form = CommentForm(request.Post)
-        
-    #     if form.is_valid():
-    #         obj = form.save(commit=False)
-    #         obj.post = post
-    #         obj.save()
-    #         return redirect('templates/prueba.html', slug=post.slug)
-    # else:
-    #     form = CommentForm()
-
-    # context = {
-    #     'post': Post,
-    #     'form': form,
-    # }
-
-    # return render(request, 'prueba.html', context)
-
-
 
 
 def register(request):
