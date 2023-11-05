@@ -46,8 +46,7 @@ def register(request):
         email = request.POST['email']
         
         if password != password2:
-            messages.error(request, "Passwords do not match.")
-            return redirect('registration/register.html')
+            return redirect('register')
 
         myuser = User.objects.create_user(username=username, email=email, password=password)
         myuser.save()
@@ -63,16 +62,16 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return render(request, 'index.html')
+            return redirect('index')
         else:
-            messages.error(request, 'Bad Credentials!')
-            return redirect("index")
+            #I need to add a bad credentials message
+            return redirect("login")
     return render(request, 'registration/login.html')
 
 
 def logout_view(request):
     logout(request)
-    messages.success(request, 'Successfull logout')
+    #I need to add a succesfull
     return redirect('index')
 
 

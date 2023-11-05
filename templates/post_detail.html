@@ -42,7 +42,9 @@
     <section class="page-section portfolio" id="portfolio">
         <div class="container">
         <h1 class="title">{{ post.title }}</h1>
-
+        {% if post.image %}
+        <img src="{{ post.image.url }}" width="300px" height="200px">
+        {% endif %}
         <p><strong>{{ post.intro }}</strong></p>
 
         <p>{{ post.body }}</p>
@@ -70,18 +72,25 @@
         {% endfor %}
         <hr>
 
-        <h2 class="subtitle">Add comment</h2>
+        <h2 class="subtitle">Add a comment</h2>
 
         <form method="post" action=".">
+
+        
+            {% if user.is_authenticated %}
             {% csrf_token %}
 
             {{ form.as_p }}
-
+            
+            
             <div class="field">
                 <div class="control">
                     <button class="button is-success">Submit</button>
                 </div>
             </div>
+            {% else %}
+            <p><a href="{% url 'login' %}">LOG IN</a>  or <a href="{% url 'register' %}">SING UP</a>  to leave a comment!</p>
+            {% endif %}
         </form>
     </div>
     </section>

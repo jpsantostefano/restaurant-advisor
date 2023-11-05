@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import include, path
 from whereToEat import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('', views.index, name="index"),
     path('login/', views.login_view, name='login'),
@@ -26,6 +29,4 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
-    
-    
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

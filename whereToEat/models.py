@@ -8,7 +8,7 @@ class Post(models.Model):
     slug = models.SlugField()
     intro = models.TextField()
     body = models.TextField()
-    
+    image = models.ImageField(null=True, blank=True, upload_to='images/')
     
 
 class Comment(models.Model):
