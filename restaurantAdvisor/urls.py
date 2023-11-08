@@ -29,4 +29,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
+    path('delete_comment/<int:comment_id>', views.delete_comment,name='delete_comment'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

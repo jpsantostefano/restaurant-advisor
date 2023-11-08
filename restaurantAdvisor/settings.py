@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-jpsantostef-restauranta-6hkyav5pcv2.ws-eu105.gitpod.io','restaurantAdvisor.herokuapp.com','localhost','restaurant-advisor-28670efc3ab4.herokuapp.com','8000-jpsantostef-restauranta-6hkyav5pcv2.ws-eu106.gitpod.io']
-CSRF_TRUSTED_ORIGINS = ['https://8000-jpsantostef-restauranta-6hkyav5pcv2.ws-eu105.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-jpsantostef-restauranta-6hkyav5pcv2.ws-eu106.gitpod.io']
 
 
 # Application definition

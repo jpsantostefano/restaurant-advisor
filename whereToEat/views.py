@@ -9,7 +9,7 @@ from django.views import generic, View
 from .forms import CommentForm
 from .models import Post, Comment
 from django.db import models
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -74,4 +74,16 @@ def post_detail(request, slug):
             form = CommentForm()
     return render(request, 'post_detail.html', {'post':post, 'form': form})
 
-   
+@login_required
+def delete_comment(request, comment_id):
+    """
+    Allows authenticated users to delete a comment
+    """
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.user == comment.name:
+        if request.method == 'POST':
+            comment.delete()
+            return redirect('post_detail', slug=comment.post.slug)
+        return render(request, 'delete_comment.html', {'comment': comment})
+    else:
+        return redirect('post_detail', post_id=comment.post.id)
