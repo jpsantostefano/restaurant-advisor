@@ -35,15 +35,14 @@
 
  <!-- Edit In Section-->
  <section class="page-section">
-    <h2>Editar Comentario</h2>
-    <form method="post">
+    <h2>Edit Comment</h2>
+    <form method="POST">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Guardar Cambios</button>
+      <button class="btn btn-primary btn-xl" type="submit">Save Changes</button>
     </form>
-    <a href="{% url 'post_detail' slug=comment.post.slug %}">Volver a la Publicación</a>
+    <a href="{% url 'post_detail' slug=comment.post.slug %}">Go back</a>
 </section>
-
 
   <!-- Footer-->
   <footer class="footer text-center">

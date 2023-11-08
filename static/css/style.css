@@ -91,6 +91,10 @@
   }
 }
 
+.edit-delete-form{
+  display: inline;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
