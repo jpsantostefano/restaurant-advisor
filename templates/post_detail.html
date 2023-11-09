@@ -52,36 +52,31 @@
         <h2 class="subtitle">Comments</h2>
 
         {% for comment in post.comments.all %}
-            <article class="media">
-                <div class="media-content">
-                    <div class="content">
-                        <p>
+                        <div class="comment-content">
                             <strong>{{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
                             <br>
+                            
                             {{ comment.body }}
-
+                        
+                        
                             {% if user.is_authenticated %}
                             {% if comment.name == user %}
                             <!--Edit comment -->
                             
                             <form method="post" action="{% url 'edit_comment' comment_id=comment.id %}" class="edit-delete-form">
                             {% csrf_token %}
-                                <button class="btn btn-success" type="submit">Edit</button>
+                                <button class="btn-delte-edit" type="submit"><i class="fa-regular fa-pen-to-square"></i></button>
                             </form>
-
+                            
                             <!--Delete comment -->
                             <form method="post" action="{% url 'delete_comment' comment_id=comment.id %}" class="edit-delete-form">
                                 {% csrf_token %}
-                                    <button class="btn btn-danger" type="submit"><a href=""></a>Delete</button>
+                                    <button class="btn-delete-edit" type="submit"><i class="fa-solid fa-trash"></i></a></button>
                                 {% endif %}
                                 {% endif %}
-                                </form>
-
-
-                        </p>
-                    </div>
-                </div>
-            </article>
+                            </form>
+                        </div>
+                    
         {% empty %}
         <div class="notification">
             <p>No comments yet!</p>
@@ -98,7 +93,7 @@
             {% if user.is_authenticated %}
             {% csrf_token %}
 
-            {{ form.as_p }}
+            {{ form.body }}
             
             
             <div class="field">

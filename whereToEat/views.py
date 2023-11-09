@@ -9,6 +9,7 @@ from django.views import generic, View
 from .forms import CommentForm
 from .models import Post, Comment
 from django.db import models
+from django import forms
 
 
 # Create your views here.

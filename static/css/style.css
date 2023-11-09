@@ -95,6 +95,15 @@
   display: inline;
 }
 
+.comment-content{
+  padding: 10px;
+}
+
+#edit-comment{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
