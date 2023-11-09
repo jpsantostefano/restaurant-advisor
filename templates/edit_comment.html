@@ -18,20 +18,31 @@
 </head>
 
 <body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav"> 
-        <a class="navbar-brand" href="{% url 'index' %}">Home</a>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
-                {% if user.is_authenticated %}
-                <li class="nav-item mx-0 mx-lg-1 navbar-brand"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                <li class="nav-item mx-0 mx-lg-1 navbar-brand"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'login' %}">Login</a></li>
-                <li class="nav-item mx-0 mx-lg-1 navbar-brand"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'register' %}">Sign up</a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
+    <!-- Navigation--> 
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
+            
+        <!-- ALERT MESSAGES-->
+        <div class="message-alert"></div>
+        <ul class="navbar-nav ms-auto">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show centro" id="msg" role="alert">
+            {{ message | safe }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            
+            <li class="nav-item mx-0 mx-lg-1 navbar-brand"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'index' %}">Home</a></li>
+            {% if user.is_authenticated %}
+            <li class="nav-item mx-0 mx-lg-1 navbar-brand"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li class="nav-item mx-0 mx-lg-1 navbar-brand"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'login' %}">Login</a></li>
+            <li class="nav-item mx-0 mx-lg-1 navbar-brand"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'register' %}">Sign up</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+    
 
  <!-- Edit In Section-->
  <section class="page-section container d-flex align-items-center flex-column" id="edit-comment">
@@ -73,5 +84,14 @@
         <div class="container"><small>© 2023 Copyright: Juan-Santostefano</small></div>
     </div>
     </div>
+
+<script>
+    setTimeout(function() {
+        let messages = document.getElementById("msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 3000);
+</script>
+
 </body>
 </html>

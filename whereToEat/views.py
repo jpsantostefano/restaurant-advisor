@@ -45,6 +45,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, "You successfully logged in!")
             return redirect('index')
         else:
             #I need to add a bad credentials message
@@ -55,6 +56,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     #I need to add a succesfull
+    messages.success(request, "You successfully logged out")
     return redirect('index')
 
 
@@ -69,6 +71,7 @@ def post_detail(request, slug):
             comment.post = post
             comment.name = request.user
             comment.save()
+            messages.success(request, "You successfully left a comment!")
 
             return redirect('post_detail', slug=post.slug)
     else:
@@ -81,6 +84,7 @@ def delete_comment(request, comment_id):
     
     if request.method == 'POST':
         comment.delete()
+        messages.success(request, "You successfully deleted your comment!")
         return redirect('post_detail', slug=comment.post.slug)
      
 
@@ -90,6 +94,7 @@ def edit_comment(request, comment_id):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
+            messages.success(request, "You successfully edited your comment!")
             return redirect('post_detail', slug=comment.post.slug)
     else:
         form = CommentForm(instance=comment)
