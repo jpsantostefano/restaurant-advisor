@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -45,8 +46,8 @@
             </div>
         </nav>
 
+        {% block content %}
         
-
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
 
@@ -99,7 +100,8 @@
             </div>
             
         </section>
-        
+        {% endblock content %}
+
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container">

@@ -11082,3 +11082,12 @@ html {
 #portfolio{
   margin-top: 5px;
 }
+
+#container-delete{
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  height: 63vh;
+}
+

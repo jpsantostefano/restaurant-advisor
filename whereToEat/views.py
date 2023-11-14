@@ -81,11 +81,23 @@ def post_detail(request, slug):
 
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
-    
+
     if request.method == 'POST':
-        comment.delete()
-        messages.success(request, "You successfully deleted your comment!")
-        return redirect('post_detail', slug=comment.post.slug)
+        if request.POST.get('confirm_delete'):
+            comment.delete()
+            # Mensaje de éxito o confirmación, si lo deseas
+            # messages.success(request, "¡Has eliminado tu comentario con éxito!")
+            return redirect('post_detail', slug=comment.post.slug)
+    return render(request, 'delete_comment.html', {'comment': comment})
+    
+        
+
+    
+    # comment = get_object_or_404(Comment, id=comment_id)  
+    # 
+    #     comment.delete()
+    #     messages.success(request, "You successfully deleted your comment!")
+    #     return redirect('post_detail', slug=comment.post.slug)
      
 
 def edit_comment(request, comment_id):
