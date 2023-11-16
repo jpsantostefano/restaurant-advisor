@@ -6,7 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.views import generic, View
-from .forms import CommentForm
+from .forms import CommentForm, ProfileForm
 from .models import Post, Comment, Profile
 from django.db import models
 from django import forms
@@ -108,15 +108,39 @@ def profile_view(request, pk):
     else:
         return redirect('index')
 
-# def edit_profile(request):
-#     user = request.user
-#     profile = Profile.objects.get(user=user)
+def edit_profile(request, pk):
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user_id=pk)
+        
+        # Verifica si el usuario actual es el propietario del perfil
+        if request.user == profile.user:
+            if request.method == 'POST':
+                # Si se envía el formulario, procesa los datos
+                form = ProfileForm(request.POST, request.FILES, instance=profile)
+                if form.is_valid():
+                    form.save()
+                    # Puedes redirigir a la página del perfil actualizado o a donde prefieras
+                    return redirect('profile_view', pk=pk)
+            else:
+                # Si es una solicitud GET, muestra el formulario de edición
+                form = ProfileForm(instance=profile)
+            
+            return render(request, 'edit_profile.html', {'form': form})
+        else:
+            # El usuario no tiene permiso para editar este perfil
+            messages.error(request, "You don't have permission to edit this profile.")
+            return redirect('index')
+    else:
+        messages.error(request, "You must be logged in to see this page")
+        return redirect('index')
 
-#     if request.method == 'POST':
-#         profile_form = ProfileForm(request.POST, request.FILES, instance=profile)
-#         if profile_form.is_valid():
-#             profile_form.save()
-#             return redirect('profile_view')
+
+
+#THis works
+# def edit_profile(request, pk):
+#     if request.user.is_authenticated:
+#         profile = Profile.objects.get(user_id=pk)
+#         return render(request, "edit_profile.html")
 #     else:
-#         profile_form = ProfileForm(instance=profile)
-#     return render(request, 'edit_profile.html',)
+#         messages.error(request, "You must be logged in to see this page")
+#         return redirect('index')

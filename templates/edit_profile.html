@@ -1,10 +1,27 @@
 {% extends 'index.html' %}
 {% block content %}
 
-<section>
-    <form method="post">
-        {% csrf_token %}
-        {{ profile }}
-        <button type="submit">Guardar cambios</button>
-    </form>
+
+    <!-- Contact Section-->
+<section class="page-section portfolio" id="contact">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary-login-register mb-0-register-login">Edit Profile</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+          <div class="row">
+            <button class="btn btn-primary btn-xl" type="submit">Save Changes</button>
+          </div>
+          </form>
+
+</section>
 {% endblock content %}
