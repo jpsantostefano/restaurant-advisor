@@ -1,6 +1,18 @@
 {% extends 'index.html' %}
 {% block content %}
-
+{% if user.is_authenticated %}
+<section class="page-section" id="login-form">
+<div class="container">
+    <!-- Contact Section Heading-->
+    <h2 class="page-section-heading text-center text-uppercase text-secondary-login-register .mb-0 login-h2">You're already Logged In!</h2>
+    <!-- Icon Divider-->
+    <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+    </div>
+</section>
+{% else %}
  <!-- Log In Section-->
  <section class="page-section" id="login-form">
     <div class="container">
@@ -12,23 +24,25 @@
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
+
+
         <!-- Contact Section Form-->
     <div class="row justify-content-center">
-            <div class="col-lg-8 col-xl-7">
+        <div class="col-lg-8 col-xl-7">
 
-    <form id="contactForm" method="POST" action="">
+    <form  method="POST" action="{% url 'login' %}">
         {% csrf_token %}
 
     <!-- Username input-->
     <div class="form-floating mb-3">
-        <input class="form-control" id="username" type="text" name="username" placeholder="Enter your username..." data-sb-validations="required" />
+        <input class="form-control" type="text" name="username" placeholder=""/>
         <label for="usuario">Username</label>
         <div class="invalid-feedback" data-sb-feedback="name:required">A username is required.</div>
     </div>
     
     <!-- Password input-->
         <div class="form-floating mb-3">
-            <input class="form-control" id="password" type="password" name="password" placeholder=""/>
+            <input class="form-control" type="password" name="password" placeholder=""/>
             <label for="pass">Password</label>
             <div class="invalid-feedback" data-sb-feedback="password:required">A password is required.</div>
         </div>
@@ -42,5 +56,6 @@
 
     </form>
 </section>
+{% endif %}
 {% endblock content %}
   

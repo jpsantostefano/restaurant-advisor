@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.views import generic, View
 from .forms import CommentForm
-from .models import Post, Comment
+from .models import Post, Comment, Profile
 from django.db import models
 from django import forms
 
@@ -26,13 +26,14 @@ def register(request):
         username = request.POST['username']
         password = request.POST['password']
         password2 = request.POST['password2']
-        email = request.POST['email']
+        
         
         if password != password2:
             return redirect('register')
 
-        myuser = User.objects.create_user(username=username, email=email, password=password)
+        myuser = User.objects.create_user(username=username, password=password)
         myuser.save()
+
         messages.success(request, "Your Account has been successfully created.")
         return redirect('index')
     return render(request, 'registration/register.html')
@@ -45,18 +46,17 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, "You successfully logged in!")
+            messages.success(request, "You have been logged in!")
             return redirect('index')
         else:
-            #I need to add a bad credentials message
-            return redirect("login")
-    return render(request, 'registration/login.html')
+            messages.error(request, "There was an error loggin in. Please try again")
+    else:  
+        return render(request, 'registration/login.html')
 
 
 def logout_view(request):
     logout(request)
-    #I need to add a succesfull
-    messages.success(request, "You successfully logged out")
+    messages.success(request, "You have been logged out")
     return redirect('index')
 
 
@@ -81,23 +81,12 @@ def post_detail(request, slug):
 
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
-
     if request.method == 'POST':
         if request.POST.get('confirm_delete'):
             comment.delete()
-            # Mensaje de éxito o confirmación, si lo deseas
-            # messages.success(request, "¡Has eliminado tu comentario con éxito!")
+            messages.success(request, "You successfully deleted your comment!")
             return redirect('post_detail', slug=comment.post.slug)
     return render(request, 'delete_comment.html', {'comment': comment})
-    
-        
-
-    
-    # comment = get_object_or_404(Comment, id=comment_id)  
-    # 
-    #     comment.delete()
-    #     messages.success(request, "You successfully deleted your comment!")
-    #     return redirect('post_detail', slug=comment.post.slug)
      
 
 def edit_comment(request, comment_id):
@@ -111,3 +100,23 @@ def edit_comment(request, comment_id):
     else:
         form = CommentForm(instance=comment)
     return render(request, 'edit_comment.html', {'form':form, 'comment':comment})
+
+def profile_view(request, pk):
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user_id=pk)
+        return render(request, "profile_view.html", {"profile":profile})
+    else:
+        return redirect('index')
+
+# def edit_profile(request):
+#     user = request.user
+#     profile = Profile.objects.get(user=user)
+
+#     if request.method == 'POST':
+#         profile_form = ProfileForm(request.POST, request.FILES, instance=profile)
+#         if profile_form.is_valid():
+#             profile_form.save()
+#             return redirect('profile_view')
+#     else:
+#         profile_form = ProfileForm(instance=profile)
+#     return render(request, 'edit_profile.html',)

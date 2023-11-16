@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from whereToEat import views
-
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,9 +24,11 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('register/', views.register, name='register'),
+    path('profile_view/<int:pk>', views.profile_view, name='profile_view'),
+    # path('edit_profile/<int:user_id>', views.edit_profile, name='edit_profile'),
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
-    path('summernote/', include('django_summernote.urls')),
+    # path('accounts/', include('allauth.urls')),
+    # path('summernote/', include('django_summernote.urls')),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('delete_comment/<int:comment_id>', views.delete_comment,name='delete_comment'),
     path('edit_comment/<int:comment_id>', views.edit_comment,name='edit_comment'),

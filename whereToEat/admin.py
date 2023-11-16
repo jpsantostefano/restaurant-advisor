@@ -1,28 +1,29 @@
 from django.contrib import admin
-from django.contrib.auth.models import User
-from .models import Post, Comment
+from django.contrib.auth.models import User, Group
+from .models import Post, Comment, Profile
 
+#Unregister Groups
+admin.site.unregister(Group)
 
+# Mix Profile info into User info
+class ProfileInline(admin.StackedInline):
+    model = Profile
 
-
-# Register your models here
-
+#Extend User Model
 class UserAdmin(admin.ModelAdmin):
-    actions = ['delete_selected_users']  
+    model = User
+    #Just display username fields on admin page
+    fields = ['username']
+    inlines = [ProfileInline]
 
-    def delete_selected_users(self, request, queryset):
-        # Delete selected users
-        for user in queryset:
-            user.delete()
-        self.message_user(request, "The users selected has been deleted successfully.")
+# Unregister initial User
+admin.site.unregister(User)
 
-    delete_selected_users.short_description = "delete selected users"
-
-    def delete_selected_comments(modeladmin, request, queryset):
-        queryset.delete()
-
-    delete_selected_comments.short_description = "Delete selected comments"
+# Registerer User and Profile
+admin.site.register(User, UserAdmin)
 
 admin.site.register(Post)
-
 admin.site.register(Comment)
+
+# admin.site.register(Profile)
+
