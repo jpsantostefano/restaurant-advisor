@@ -28,19 +28,12 @@
                             {% if user.is_authenticated %}
                             {% if comment.name == user %}
                             <!--Edit comment -->
-                            
-                            <form method="post" action="{% url 'edit_comment' comment_id=comment.id %}" class="edit-delete-form">
-                            {% csrf_token %}
-                                <button class="btn-delte-edit" type="submit"><i class="fa-regular fa-pen-to-square"></i></button>
-                            </form>
-                            
+                            <button><a class="nav-link px-0" href="{% url 'edit_comment' comment.id %}"><i class="fa-regular fa-pen-to-square"></i></a></button>
+
                             <!--Delete comment -->
-                            <form method="post" action="{% url 'delete_comment' comment_id=comment.id %}" class="edit-delete-form">
-                                {% csrf_token %}
-                                    <button class="btn-delete-edit" type="submit"><i class="fa-solid fa-trash"></i></a></button>
+                            <button><a class="nav-link px-0" href="{% url 'delete_comment' comment.id %}"><i class="fa-solid fa-trash"></i></a></button>
                                 {% endif %}
                                 {% endif %}
-                            </form>
                         </div>
                     
         {% empty %}

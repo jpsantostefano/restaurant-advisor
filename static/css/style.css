@@ -99,7 +99,10 @@
   padding: 10px;
 }
 
-
+.btn-delete-edit{
+  height: 50px;
+  width: 50px;
+}
 
 @media (max-width:320px){
   .footer{

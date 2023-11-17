@@ -24,7 +24,7 @@ class Comment(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.name)
+        return self.body
 
     class Meta:
         ordering = ['date_added']
