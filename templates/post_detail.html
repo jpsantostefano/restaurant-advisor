@@ -19,7 +19,10 @@
 
         {% for comment in post.comments.all %}
                         <div class="comment-content">
-                            <strong>{{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
+                            {% if profile.image %}
+            <img src="{{ profile.image.url }}" width="200px" height="200px">
+        {% endif %}
+        <strong> {{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
                             <br>
                             
                             {{ comment.body }}
