@@ -49,6 +49,7 @@ def login_view(request):
             return redirect('index')
         else:
             messages.error(request, "There was an error loggin in. Please try again.")
+            return render(request, 'registration/login.html')
     else:  
         return render(request, 'registration/login.html')
 
