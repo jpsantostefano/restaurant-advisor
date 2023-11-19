@@ -1,26 +1,17 @@
 {% extends 'index.html' %}
 {% block content %}
     
-
- <!-- Edit In Section-->
- <section class="page-section container d-flex align-items-center flex-column" id="edit-comment">
+<!-- Edit Comment Section-->
+<section class="page-section container d-flex align-items-center flex-column" id="edit-comment">
     <h2 class="text-secondary-login-register">Edit Comment</h2>
-    <!-- Icon Divider-->
-    
-
     <form method="POST">
-      {% csrf_token %}
-      
+      {% csrf_token %}  
       {{ form.body }}
-    <div class="row">
-      <button class="btn btn-primary btn-xl" type="submit">Save Changes</button>
-    </div>
+        <div class="row">
+          <button class="btn btn-primary btn-xl" type="submit">Save Changes</button>
+        </div>
     </form>
-
-    
-
     <br>
     <a href="{% url 'post_detail' slug=comment.post.slug %}">Go back</a>
-    
 </section>
 {% endblock content %}

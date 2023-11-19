@@ -1,8 +1,7 @@
 {% extends 'index.html' %}
 {% block content %}
 
-
-    <!-- Contact Section-->
+<!-- Contact Section-->
 <section class="page-section portfolio edit_profile-section">
     <div class="d-flex flex-column justify-content-center align-items-center">
         <!-- Contact Section Heading-->
@@ -14,14 +13,14 @@
             <div class="divider-custom-line"></div>
         </div>
 
+        <!-- Form Section-->
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            
             {{ form.as_p }}
-          <div class="row">
-            <button class="btn btn-primary btn-xl" type="submit">Save Changes</button>
-          </div>
-          </form>
-
+            <div class="row">
+                <button class="btn btn-primary btn-xl" type="submit">Save Changes</button>
+            </div>
+        </form>
+    </div>
 </section>
 {% endblock content %}

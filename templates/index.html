@@ -22,96 +22,81 @@
         
     <body>
         <!-- Navigation--> 
-    <nav class="navbar bg-secondary text-uppercase mainNav">
-        <div class="container-fluid">
-            <div class="row">
+        <nav class="navbar bg-secondary text-uppercase mainNav">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-4 align-items-center d-flex">
+                        <img src="https://res.cloudinary.com/dccb0yehp/image/upload/v1700366684/media/images/logo-png_nuhmkw.png" width="90px"  height="80px" alt="logo">
+                    </div>
 
-                <div class="col-4 align-items-center d-flex">
-                    <img src="https://res.cloudinary.com/dccb0yehp/image/upload/v1700366684/media/images/logo-png_nuhmkw.png" width="90px"  height="80px" alt="logo">
+                    <!-- ALERT MESSAGES -->
+                    <div class="navbar-alert col-4">
+                        {% for message in messages %}
+                            <div class="alert {{ message.tags }} alert-dismissible fade show " id="msg" role="alert">
+                            {{ message | safe }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            {% endfor %}
+                    </div> 
+                    
+                    <!-- UL ELEMENTS -->
+                    <div class="col-4">
+                        <ul class="navbar-nav">
+                            <li class="nav-item navbar-brand"><a class="nav-link py-3" href="{% url 'index' %}">Home</a></li>
+                            {% if user.is_authenticated %}
+                            <li class="nav-item navbar-brand"><a class="nav-link py-3" href="{% url 'profile_view' request.user.id %}">Profile</a></li>
+                            <li class="nav-item navbar-brand"><a class="nav-link py-3" href="{% url 'logout' %}">Logout</a></li>
+                            {% else %}
+                            <li class="nav-item navbar-brand"><a class="nav-link py-3" href="{% url 'login' %}">Login</a></li>
+                            <li class="nav-item navbar-brand"><a class="nav-link py-3" href="{% url 'register' %}">Sign up</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
                 </div>
-
-                <!-- ALERT MESSAGES-->
-                <div class="navbar-alert col-4">
-                    {% for message in messages %}
-                        <div class="alert {{ message.tags }} alert-dismissible fade show " id="msg" role="alert">
-                        {{ message | safe }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        {% endfor %}
-                </div> 
-                <!-------------------->
-
-                <div class="col-4">
-                    <ul class="navbar-nav">
-                        <li class="nav-item navbar-brand"><a class="nav-link py-3" href="{% url 'index' %}">Home</a></li>
-                        {% if user.is_authenticated %}
-                        <li class="nav-item navbar-brand"><a class="nav-link py-3" href="{% url 'profile_view' request.user.id %}">Profile</a></li>
-                        <li class="nav-item navbar-brand"><a class="nav-link py-3" href="{% url 'logout' %}">Logout</a></li>
-                        {% else %}
-                        <li class="nav-item navbar-brand"><a class="nav-link py-3" href="{% url 'login' %}">Login</a></li>
-                        <li class="nav-item navbar-brand"><a class="nav-link py-3" href="{% url 'register' %}">Sign up</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-                
             </div>
-        </div>
-    </nav>
-              
+        </nav>
         
-
         {% block content %}
 
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column"></div>
-                <!-- Masthead Avatar Image-->
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Restaurant Advisor</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Discover your next dining adventure with our Restaurant Advisor website. Explore client reviews, recommendations, and insider tips to find the perfect restaurant for every occasion.</p>
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">Restaurant Advisor</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
             </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">Discover your next dining adventure with our Restaurant Advisor website. Explore client reviews, recommendations, and insider tips to find the perfect restaurant for every occasion.</p>
         </header>
-
-         
 
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary">Selected Restaurants</h2>
-                
-
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                 {% for post in posts %}
-                
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto">             
-                        <h2>{{ post.title }}</h2> <!-- This refers to models.py title -->
-                        <br>
-                        {% if post.image %}
-                        <img src="{{ post.image.url }}" width="300px" height="200px">
-                        {% endif %}
-                        <p>{{ post.intro }}</p>
-                        <a href="{% url 'post_detail' post.slug %}">Reviews</a>
-                    </div>        
-                </div>
-                
-            
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto">             
+                            <h2>{{ post.title }}</h2> <!-- This refers to models.py title -->
+                            <br>
+                            {% if post.image %}
+                            <img src="{{ post.image.url }}" width="300px" height="200px">
+                            {% endif %}
+                            <p>{{ post.intro }}</p>
+                            <a href="{% url 'post_detail' post.slug %}">Reviews</a>
+                        </div>        
+                    </div>
                 {% endfor %}
-            </div>
-                
-                
-            </div>
-            
+                </div>             
+            </div>    
         </section>
+        
         {% endblock content %}
 
         <!-- Footer-->
@@ -129,17 +114,19 @@
                 </div>
             </div>
         </footer>
+
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
             <div class="container"><small>© 2023 Copyright: Juan-Santostefano</small></div>
         </div>
-          
+            
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         setTimeout(function () {
             let messages = document.getElementById('msg');
             messages.style.display = "none"; // Oculta la alerta automáticamente
         }, 5000);
-    </script>
+        </script>
+
     </body>
 </html>
 
