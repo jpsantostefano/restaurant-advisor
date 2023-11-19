@@ -30,7 +30,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-jpsantostef-restauranta-p0dwfrt4aot.ws-eu106.gitpod.io','restaurantAdvisor.herokuapp.com','localhost','restaurant-advisor-28670efc3ab4.herokuapp.com','5000-jpsantostef-restauranta-p0dwfrt4aot.ws-eu106.gitpod.io']
 CSRF_TRUSTED_ORIGINS = ['https://8000-jpsantostef-restauranta-p0dwfrt4aot.ws-eu106.gitpod.io', 'https://5000-jpsantostef-restauranta-p0dwfrt4aot.ws-eu106.gitpod.io']
