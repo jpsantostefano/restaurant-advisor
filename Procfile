@@ -1,1 +1,1 @@
-web: gunicorn restaurantAdvisor.wsgi
+web: gunicorn restaurantAdvisor.wsgi:application
