@@ -2,10 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
+# This is what I see in admin
 
 
-
-#This is what I see in admin
 class Post(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField()
@@ -15,7 +14,7 @@ class Post(models.Model):
 
     def __self__(self):
         return self.title
-    
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
@@ -30,8 +29,6 @@ class Comment(models.Model):
         ordering = ['date_added']
 
 
-
-#new
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField()
@@ -43,12 +40,12 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-# Create Profile when new user signs up
+
+# Create Profile when a new user signs up
 def create_profile(sender, instance, created, **kwargs):
     if created:
         user_profile = Profile(user=instance)
         user_profile.save()
 
+
 post_save.connect(create_profile, sender=User)
-
-

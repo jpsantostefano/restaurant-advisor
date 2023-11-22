@@ -11,11 +11,11 @@ from .models import Post, Comment, Profile
 from django.db import models
 from django import forms
 
-# Create your views here.
+# Create your views here
 
 # Home view
 def index(request):
-    #Shows all the posts
+    # Shows all the posts
     posts = Post.objects.all()
     return render(request, 'index.html', {'posts': posts})
 
@@ -50,7 +50,7 @@ def login_view(request):
         else:
             messages.error(request, "There was an error loggin in. Please try again.")
             return render(request, 'registration/login.html')
-    else:  
+    else:
         return render(request, 'registration/login.html')
 
 
@@ -75,8 +75,8 @@ def post_detail(request, slug):
             messages.success(request, "You successfully left a comment!")
             return redirect('post_detail', slug=post.slug)
     else:
-            form = CommentForm()
-    return render(request, 'post_detail.html', {'post':post, 'form': form})
+        form = CommentForm()
+    return render(request, 'post_detail.html', {'post': post, 'form': form})
 
 
 # Comment views
@@ -88,12 +88,12 @@ def delete_comment(request, comment_id):
             messages.success(request, "You successfully deleted your comment!")
             return redirect('post_detail', slug=comment.post.slug)
     return render(request, 'delete_comment.html', {'comment': comment})
-     
+
 
 def edit_comment(request, comment_id):
     if request.user.is_authenticated:
         comment = get_object_or_404(Comment, id=comment_id)
-        #Edit comment form
+        # Edit comment form
         if request.method == 'POST':
             form = CommentForm(request.POST, request.FILES, instance=comment)
             if form.is_valid():
@@ -102,7 +102,7 @@ def edit_comment(request, comment_id):
                 return redirect('post_detail', slug=comment.post.slug)
         else:
             form = CommentForm(instance=comment)
-        return render(request, 'edit_comment.html', {'form':form, 'comment':comment})
+        return render(request, 'edit_comment.html', {'form': form, 'comment': comment})
     else:
         messages.error(request, "You must be logged in to see this page.")
         return redirect('index')
@@ -112,7 +112,7 @@ def edit_comment(request, comment_id):
 def profile_view(request, pk):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user_id=pk)
-        return render(request, 'profile_view.html', {'profile':profile})
+        return render(request, 'profile_view.html', {'profile': profile})
     else:
         return redirect('index')
 
@@ -141,5 +141,3 @@ def edit_profile(request, pk):
     else:
         messages.error(request, "You must be logged in to see this page.")
         return redirect('index')
-
-
