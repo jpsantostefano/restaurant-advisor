@@ -18,7 +18,7 @@
         {% for comment in post.comments.all %}
         <div class="comment-content">
             {% if profile.image %}
-            <img src="{{ profile.image.url }}" width="200px" height="200px">
+            <img src="{{ profile.image.url }}" width="200px" height="200px" alt="restaurant-image">
             {% endif %}
             <strong> {{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
             <br>

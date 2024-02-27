@@ -39,7 +39,7 @@
             <h4>Image: </h4>
         </div>
         {% if profile.image %}
-            <img src="{{ profile.image.url }}" width="200px" height="200px">
+            <img src="{{ profile.image.url }}" width="200px" height="200px" alt="profile-image">
         {% endif %}
         <br>
         <button class="btn btn-primary btn-lg"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'edit_profile' request.user.id %}">Edit profile</a></button>

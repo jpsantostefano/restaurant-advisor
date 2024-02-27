@@ -38,6 +38,7 @@ def register(request):
 
 
 # Sign in/ out view:
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']

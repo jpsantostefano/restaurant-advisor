@@ -15,13 +15,14 @@ from pathlib import Path
 import dj_database_url
 from django.contrib.messages import constants as messages
 
+
 if os.path.isfile("env.py"):
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -30,10 +31,10 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['8000-jpsantostef-restauranta-p0dwfrt4aot.ws-eu106.gitpod.io','restaurantAdvisor.herokuapp.com','localhost','restaurant-advisor-28670efc3ab4.herokuapp.com','5000-jpsantostef-restauranta-p0dwfrt4aot.ws-eu106.gitpod.io']
-CSRF_TRUSTED_ORIGINS = ['https://8000-jpsantostef-restauranta-p0dwfrt4aot.ws-eu106.gitpod.io', 'https://5000-jpsantostef-restauranta-p0dwfrt4aot.ws-eu106.gitpod.io']
+DEBUG = True
+SITE_ID = 1
+ALLOWED_HOSTS = ['8000-jpsantostef-restauranta-nubbjbeatrb.ws-eu108.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-jpsantostef-restauranta-nubbjbeatrb.ws-eu108.gitpod.io']
 
 
 # Application definition
@@ -178,10 +179,3 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SITE_ID = 1
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dccb0yehp',
-    'API_KEY': '648413156757531',
-    'API_SECRET': 'Zf5ZLL6qEOJ7edtE5-ybtkx0edc',
-}
