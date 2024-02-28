@@ -32,6 +32,8 @@ def register(request):
         # Saves the user information
         myuser = User.objects.create_user(username=username, password=password)
         myuser.save()
+        user = authenticate(username=username, password=password)
+        login(request, user)
         messages.success(request, "Your Account has been successfully created.")
         return redirect('index')
     return render(request, 'registration/register.html')
