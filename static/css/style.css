@@ -51,6 +51,10 @@ section{
   font-weight: bold;
 }
 
+ul li a:hover {
+  color: #1ABC9C;
+}
+
 /************/
 .divider-custom {
   margin: 1.25rem 0 1.5rem;
