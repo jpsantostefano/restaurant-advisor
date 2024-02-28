@@ -16,7 +16,7 @@
           <form method="post">
           {% csrf_token %}
               
-              <input class="button yes-no-button" name="confirm_delete" value="Yes"></input>
+              <input class="button yes-button" name="confirm_delete" value="Yes" type="submit"></input>
               <button class="button" aria-label="submit"><a href="{% url 'post_detail' slug=comment.post.slug %}">No</a></button>
           </form>
           <br>

@@ -256,41 +256,24 @@ label {
   display: table;
   margin: 0 auto;
   text-align: center;
-  font-size: 16px;
+  font-size: 25px;
 }
 
 .alertClose {
   float: right;
   padding-top: 5px;
-  font-size: 10px;
+  font-size: 25px;
+  margin-left: 10px;
 }
 
 .clear {
   clear: both;
 }
 
-.info {
-  background-color: #EEE;
-  border: 1px solid #DDD;
-  color: #999;
-}
-
-.success {
-  background-color: #EFE;
-  border: 1px solid #DED;
-  color: #9A9;
-}
-
 .notice {
   background-color: #EFF;
   border: 1px solid #DEE;
-  color: #9AA;
-}
-
-.warning {
-  background-color: #FDF7DF;
-  border: 1px solid #FEEC6F;
-  color: #C9971C;
+  color: black;
 }
 
 .error {
@@ -299,6 +282,7 @@ label {
   color: #A66;
 }
 
+/****************/
 .login-register-input{
   font-size: 20px;
   padding: 10px 20px; 
@@ -335,8 +319,8 @@ button a {
   color: #04201A;
 }
 
-.yes-no-button{
-  width: 35px;
+.yes-button{
+  width: 70px;
 }
 
 
