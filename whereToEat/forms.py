@@ -13,14 +13,19 @@ class CommentForm(forms.ModelForm):
             'class': 'textarea',
         })
 
+
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['first_name','last_name','email','instagram', 'image']
+        fields = ['first_name', 'last_name', 'email', 'instagram', 'image']
 
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
-        self.fields['first_name'].widget.attrs.update({'class': 'login-register-input'})
-        self.fields['last_name'].widget.attrs.update({'class': 'login-register-input'})
-        self.fields['email'].widget.attrs.update({'class': 'login-register-input'})
-        self.fields['instagram'].widget.attrs.update({'class': 'login-register-input'})
+        self.fields['first_name'].widget.attrs.update({'class':
+                                                      'login-register-input'})
+        self.fields['last_name'].widget.attrs.update({'class':
+                                                      'login-register-input'})
+        self.fields['email'].widget.attrs.update({'class':
+                                                  'login-register-input'})
+        self.fields['instagram'].widget.attrs.update({'class':
+                                                     'login-register-input'})

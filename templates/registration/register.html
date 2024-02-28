@@ -1,54 +1,42 @@
 {% extends 'index.html' %}
 {% block content %}
-
 <!-- Contact Section-->
 <section>
     <div class="login-register-section info-section">
         <!-- Contact Section Heading-->
         <h2 class="section-title">Register</h2>
-        
         <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
-
         <!-- Contact Section Form-->
         <div class="form-container">
-                <form method="POST" action="/register/">
+            <form method="POST" action="/register/">
                 {% csrf_token %}
-
                     <!-- Name input-->
-                    <div>
-                        <label for="name">Username:</label>
-                        <input class="login-register-input" id="username" name="username" type="text" placeholder="Enter your username" required />
-                    </div>
-                
-                    <!-- Password input-->
-                    <div>
-                        <label for="password">Password:</label>
-                        <input class="login-register-input" id="password" name="password" type="password" placeholder="Enter your password" required/>
-                        
-                    </div>
-
-                    <!-- Password again input-->
-                    <div>  
-                        <label for="password2">Password (again):</label>
-                        <input class="login-register-input" type="password" id="password2" name="password2" placeholder="Enter your password again" required/>
-                    </div>
-                    
-                    <!-- Submit Button-->
-                    <div>
-                    <button class="button" aria-label="submit" type="submit">Submit</button>
-                    
+                <div>
+                    <label for="name">Username:</label>
+                    <input class="login-register-input" id="username" name="username" type="text" placeholder="Enter your username" required />
                 </div>
-                
-                </form>
-                
+                <!-- Password input-->
+                <div>
+                    <label for="password">Password:</label>
+                    <input class="login-register-input" id="password" name="password" type="password" placeholder="Enter your password" required/>   
+                </div>
+                <!-- Password again input-->
+                <div>  
+                    <label for="password2">Password (again):</label>
+                    <input class="login-register-input" type="password" id="password2" name="password2" placeholder="Enter your password again" required/>
+                </div> 
+                <!-- Submit Button-->
+                <div>
+                    <button class="button" aria-label="submit" type="submit">Submit</button>
+                </div>
+            </form>  
         </div>   
         <p class="question">Do you already have an account? <a href="{% url 'login' %}">Sign in</a></p>
     </div>
 </section>
-
 {% endblock content %}

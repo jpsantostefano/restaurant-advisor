@@ -11,9 +11,10 @@ from .models import Post, Comment, Profile
 from django.db import models
 from django import forms
 
-# Create your views here
 
 # Home view
+
+
 def index(request):
     # Shows all the posts
     posts = Post.objects.all()
@@ -34,7 +35,8 @@ def register(request):
         myuser.save()
         user = authenticate(username=username, password=password)
         login(request, user)
-        messages.success(request, "Your Account has been successfully created.")
+        messages.success
+        (request, "Your Account has been successfully created.")
         return redirect('index')
     return render(request, 'registration/register.html')
 
@@ -51,7 +53,8 @@ def login_view(request):
             messages.success(request, "You have been logged in!")
             return redirect('index')
         else:
-            messages.error(request, "There was an error loggin in. Please try again.")
+            messages.error
+            (request, "There was an error loggin in. Please try again.")
             return render(request, 'registration/login.html')
     else:
         return render(request, 'registration/login.html')
@@ -101,11 +104,13 @@ def edit_comment(request, comment_id):
             form = CommentForm(request.POST, request.FILES, instance=comment)
             if form.is_valid():
                 form.save()
-                messages.success(request, "You successfully edited your comment!")
+                messages.success
+                (request, "You successfully edited your comment!")
                 return redirect('post_detail', slug=comment.post.slug)
         else:
             form = CommentForm(instance=comment)
-        return render(request, 'edit_comment.html', {'form': form, 'comment': comment})
+        return render(request, 'edit_comment.html',
+                      {'form': form, 'comment': comment})
     else:
         messages.error(request, "You must be logged in to see this page.")
         return redirect('index')
@@ -128,10 +133,13 @@ def edit_profile(request, pk):
         if request.user == profile.user:
             if request.method == 'POST':
                 # Process data
-                form = ProfileForm(request.POST, request.FILES, instance=profile)
+                form = ProfileForm(request.POST,
+                                   request.FILES,
+                                   instance=profile)
                 if form.is_valid():
                     form.save()
-                    messages.success(request, "You successfully edited your profile!")
+                    messages.success
+                    (request, "You successfully edited your profile!")
                     return redirect('profile_view', pk=pk)
             else:
                 # If it's a GET request, shows the edition form.
@@ -139,7 +147,8 @@ def edit_profile(request, pk):
             return render(request, 'edit_profile.html', {'form': form})
         else:
             # If the user is not permited to see this page.
-            messages.error(request, "You don't have permission to edit this profile.")
+            messages.error
+            (request, "You don't have permission to edit this profile.")
             return redirect('index')
     else:
         messages.error(request, "You must be logged in to see this page.")

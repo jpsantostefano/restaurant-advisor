@@ -1,6 +1,5 @@
 {% extends 'index.html' %}
 {% block content %}
-
 <!-- POST -->
 <section class="mobile-section">
     <div class="post-detail-section">
@@ -11,37 +10,35 @@
         <p><strong>{{ post.intro }}</strong></p>
         <p>{{ post.body }}</p>
         <hr>
-
         <!-- COMMENTS -->
         <h2>Comments</h2>
-
         {% for comment in post.comments.all %}
-        <div class="comments">
-            {% if profile.image %}
-            <img src="{{ profile.image.url }}" width="200px" height="200px" alt="profile-picture">
-            {% endif %}
-            <strong> {{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
-            <br>
-            {{ comment.body }}
-            {% if user.is_authenticated %}
-            {% if comment.name == user %}
-
-            <!--Edit comment -->
-            <button class="edit-delete-button" aria-label="edit"><a href="{% url 'edit_comment' comment.id %}"><i class="fa-regular fa-pen-to-square icon-color"></i></a></button>
-
-            <!--Delete comment -->
-            <button class="edit-delete-button" aria-label="delete"><a href="{% url 'delete_comment' comment.id %}"><i class="fa-solid fa-trash icon-color"></i></a></button>
-            {% endif %}
-            {% endif %}
-        </div>
-                    
-        {% empty %}
-        <div>
-            <p>No comments yet!</p>
-        </div>
+            <div class="comments">
+                {% if profile.image %}
+                <img src="{{ profile.image.url }}" width="200px" height="200px" alt="profile-picture">
+                {% endif %}
+                <strong> {{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
+                <br>
+                {{ comment.body }}
+                {% if user.is_authenticated %}
+                    {% if comment.name == user %}
+                    <!--Edit comment -->
+                    <button class="edit-delete-button" aria-label="edit">
+                        <a href="{% url 'edit_comment' comment.id %}"><i class="fa-regular fa-pen-to-square icon-color"></i></a>
+                    </button>
+                    <!--Delete comment -->
+                    <button class="edit-delete-button" aria-label="delete">
+                        <a href="{% url 'delete_comment' comment.id %}"><i class="fa-solid fa-trash icon-color"></i></a>
+                    </button>
+                    {% endif %}
+                {% endif %}
+            </div>         
+            {% empty %}
+            <div>
+                <p>No comments yet!</p>
+            </div>
         {% endfor %}
         <hr>
-
         <!-- ADD COMMENT -->
         <h2>Add a comment</h2>
         <form method="POST" action=".">

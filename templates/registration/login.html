@@ -1,57 +1,51 @@
 {% extends 'index.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-<section>
-<div class="login-section">
-    <div class="section-title">
-        <div>
-        <h2>You're already Logged In!</h2>
+    <section>
+        <div class="login-section">
+            <div class="section-title">
+                <div>
+                    <h2>You're already Logged In!</h2>
+                </div>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+            </div>
         </div>
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-    </div>
-</section>
+    </section>
 {% else %}
-<section>
-    <div class="login-register-section info-section">
-        <!-- Contact Section Heading-->
-        <h2 class="section-title">Log In</h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-
-        <!-- Contact Section Form-->
-
-        <div class="form-container">
-            <form  method="POST" action="{% url 'login' %}">
-            {% csrf_token %}
-                
-                <!-- Username input-->
-              
+    <section>
+        <div class="login-register-section info-section">
+            <!-- Contact Section Heading-->
+            <h2 class="section-title">Log In</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Contact Section Form-->
+            <div class="form-container">
+                <form  method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <!-- Username input-->
                     <label for="usuario">Username:</label>
                     <input class="login-register-input" type="text" name="username" placeholder="Type your username"/>
-                
-                <!-- Password input-->
-              
+                    <!-- Password input-->
                     <label for="pass">Password:</label>
                     <input class="login-register-input" type="password" name="password" placeholder="Type your password"/>
-
-                <!-- Login Button-->
-                <div>
-                <button class="button" aria-label="submit" type="submit">Login</button>
-                </div>
-            </form> 
+                    <!-- Login Button-->
+                    <div>
+                        <button class="button" aria-label="submit" type="submit">Login</button>
+                    </div>
+                </form> 
+            </div>
+            <p class="question">If you have not created an account yet, then please <a href="{% url 'register' %}">sign up </a>first.</p>
         </div>
-        <p class="question">If you have not created an account yet, then please <a href="{% url 'register' %}">sign up </a>first.</p>
-    </div>
-</section>
+    </section>
 {% endif %}
 {% endblock content %}
   

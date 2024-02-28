@@ -18,7 +18,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
     </head>
-    
     <body class="lexend-deca-title">
         <!-- Navigation--> 
         <nav>
@@ -27,7 +26,6 @@
                 <div class="nav-logo">
                     <a href="{% url 'index' %}"><img src="https://res.cloudinary.com/dccb0yehp/image/upload/v1709148077/media/images/logo_pqz5vw.webp" width="90"  height="80" alt="logo"></a>
                 </div>
-        
                 <!-- ALERT MESSAGES -->
                 <div class="nav-messages">
                     {% for message in messages %}
@@ -40,7 +38,6 @@
                     </label>   
                     {% endfor %}
                 </div> 
-                
                 <!-- UL ELEMENTS -->
                 <div class="nav-links">
                     <ul>
@@ -56,10 +53,7 @@
                 </div>
             </div>
         </nav>
-        
-        
         {% block content %}
-
         <!-- Masthead-->
         <header class="index-header">
             <!-- Masthead Heading-->
@@ -73,14 +67,13 @@
             <!-- Masthead Subheading-->
             <p>Discover your next dining adventure with our Restaurant Advisor website. Explore client reviews, recommendations, and insider tips to find the perfect restaurant for every occasion.</p>
         </header>
-
         <!--Section-->
         <section >
             <h2 class="selected-restaurants">Selected Restaurants</h2>
             <!--Grid post-->
             <div class="index-grid">
                 {% for post in posts %}         
-                <div class="restaurant-container">
+                    <div class="restaurant-container">
                         <h2>{{ post.title }}</h2>
                         <br>
                         {% if post.image %}
@@ -88,16 +81,13 @@
                         {% endif %}
                         <p>{{ post.intro }}</p>
                         <a href="{% url 'post_detail' post.slug %}">Reviews</a>
-                </div>
+                    </div>
                 {% endfor %}
             </div>                  
         </section>
-        
         {% endblock content %}
-
         <!-- Footer-->
         <footer>
-            <!-- Footer Social Icons-->
             <div>
                 <h3>Social Media</h3>
                 <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook" rel="noopener noreferrer"><i class="fab fa-fw fa-facebook-f"></i></a>
@@ -106,12 +96,10 @@
                 <a href="https://www.youtube.com/" target="_blank" aria-label="Youtube" rel="noopener noreferrer"><i class="fab fa-fw fa-youtube"></i></a>
             </div>
         </footer>
-
         <!-- Copyright Section-->
         <div class="copyright">
             <small>© 2023 Copyright: Juan-Santostefano</small>
         </div>
-
     </body>
 </html>
 

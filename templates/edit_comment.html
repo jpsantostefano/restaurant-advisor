@@ -1,25 +1,24 @@
 {% extends 'index.html' %}
 {% block content %}
-    
 <!-- Edit Comment Section-->
 <section>
-  <div class="edit-comment-profile-section info-section">
-    <h2 class="section-title">Edit Comment</h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-    <form method="POST">
-      {% csrf_token %}  
-      {{ form.body }}
-        <div>
-          <button class="button" aria-label="submit" type="submit">Save Changes</button>
-        </div>
-    </form>
-    <br>
-    <a href="{% url 'post_detail' slug=comment.post.slug %}">Go back</a>
-  </div>
+    <div class="edit-comment-profile-section info-section">
+      <h2 class="section-title">Edit Comment</h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+          <div class="divider-custom-line"></div>
+      </div>
+      <form method="POST">
+          {% csrf_token %}  
+          {{ form.body }}
+          <div>
+              <button class="button" aria-label="submit" type="submit">Save Changes</button>
+          </div>
+      </form>
+      <br>
+      <a href="{% url 'post_detail' slug=comment.post.slug %}">Go back</a>
+    </div>
 </section>
 {% endblock content %}
