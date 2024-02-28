@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="restaurant advisor"/>
-        <meta name="author" content="Juan Santostefano"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="restaurant advisor">
+        <meta name="author" content="Juan Santostefano">
         <title>Restaurant-Advisor</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'css/img/favicon.ico' %}"/>
+        <link rel="icon" type="image/x-icon" href="{% static 'css/img/favicon.ico' %}">
         <!-- Icons -->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- CSS -->
@@ -30,7 +30,7 @@
                 <div class="nav-messages">
                     {% for message in messages %}
                     <label>
-                        <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+                        <input type="checkbox" class="alertCheckbox" autocomplete="off"/>
                         <div class="alert notice">
                           <span class="alertClose">X</span>
                           <span class="alertText">{{ message | safe }} <br class="clear"/></span>

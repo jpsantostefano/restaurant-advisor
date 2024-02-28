@@ -1,16 +1,20 @@
+/************ GENERAL TAGS ************/
 body, html {
   margin: 0;
   padding: 0;
   font-size: 25px;
 }
 
-
 section{
   padding: 50px;
 }
 
-/***********NAVBAR ************/
+.lexend-deca-title {
+  font-family: "Lexend Deca", sans-serif;
+  font-style: normal;
+}
 
+/************ NAVBAR ************/
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -55,7 +59,7 @@ ul li a:hover {
   color: #1ABC9C;
 }
 
-/************/
+/************ DIVIDER STAR ************/
 .divider-custom {
   margin: 1.25rem 0 1.5rem;
   width: 100%;
@@ -87,21 +91,8 @@ ul li a:hover {
 .divider-custom.divider-light .divider-custom-icon {
   color: #fff;
 }
-/**********************/
 
-.masthead{
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.index-header{
-  background-color: #1ABC9C;
-  text-align: center;
-  color: #fff;
-  padding: 60px 280px;
-}
-
-/*******************/
+/************ INDEX ************/
 .selected-restaurants{
   text-align: center;
   text-transform: uppercase;
@@ -115,7 +106,20 @@ ul li a:hover {
   text-align: center;
 }
 
-/********************/
+/************ HEADER ************/
+.masthead{
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.index-header{
+  background-color: #1ABC9C;
+  text-align: center;
+  color: #fff;
+  padding: 60px 280px;
+}
+
+/************ FOOTER ************/
 footer{
   text-align: center;
   background-color: #2C3D50;
@@ -149,31 +153,13 @@ footer a:hover{
   padding: 20px;
 }
 
-/*********************/
+/************ SECTION ************/
 .section-title{
   text-align: center;
   text-transform: uppercase;
   color: #2C3D50;
   margin-bottom: 0px;
   font-size: 50px;
-}
-
-.lexend-deca-title {
-  font-family: "Lexend Deca", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-/******************/
-.form-container {
-  display: flex; 
-  justify-content: center; 
-}
-
-label {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  display: block;
 }
 
 .login-register-section{
@@ -209,6 +195,42 @@ label {
   margin-bottom: 10px;
 }
 
+.post-detail-section{
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.margin-section{
+  margin-left: 800px;
+  margin-right: 800px;
+}
+
+.textarea{
+  font-size: 25px;
+}
+
+/************ FORMS ************/
+.form-container {
+  display: flex; 
+  justify-content: center; 
+}
+
+label {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: block;
+}
+
+.login-register-input{
+  font-size: 20px;
+  padding: 10px 20px; 
+  height: 50px; 
+  width: 100%; 
+  border: 1px solid #ccc;
+  border-radius: 5px; 
+}
+
+/************ BUTTON ************/
 .icon-color{
   color: black;
   font-size: 20px;
@@ -219,18 +241,35 @@ label {
   height: 40px;
 }
 
-.post-detail-section{
-  margin-left: 150px;
-  margin-right: 150px;
+.button {
+  background-color: #1ABC9C; 
+  color: #04201A; 
+  padding: 15px 20px;
+  font-size: 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
+.button:hover {
+  background-color: #32a38c; 
+}
 
+button a {
+  text-decoration: none;
+  color: #04201A;
+}
+
+.yes-button{
+  width: 70px;
+}
 
 /******* ALERT MESSAGES ********/
-
 .alert {
   position: relative;
-  top: 10;
   left: 0;
   width: auto;
   height: auto;
@@ -238,7 +277,6 @@ label {
   margin: 10px;
   line-height: 1.8;
   border-radius: 5px;
-  cursor: hand;
   cursor: pointer;
   font-family: sans-serif;
   font-weight: 400;
@@ -282,59 +320,14 @@ label {
   color: #A66;
 }
 
-/****************/
-.login-register-input{
-  font-size: 20px;
-  padding: 10px 20px; 
-  height: 50px; 
-  width: 100%; 
-  border: 1px solid #ccc;
-  border-radius: 5px; 
-}
-
-.button {
-  background-color: #1ABC9C; 
-  color: #04201A; 
-  padding: 15px 20px;
-  font-size: 20px; 
-  border: none; 
-  border-radius: 5px; 
-  cursor: pointer; 
-  font-size: 20px;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-.button:hover {
-  background-color: #32a38c; 
-}
-
-.margin-section{
-  margin-left: 800px;
-  margin-right: 800px;
-}
-
-button a {
-  text-decoration: none;
-  color: #04201A;
-}
-
-.yes-button{
-  width: 70px;
-}
-
-.textarea{
-  font-size: 25px;
-}
-
-
+/******* MOBILE RESOLUTION ********/
 @media screen and (max-width: 480px) {
   body, html {
-      font-size: 12px;
+    font-size: 12px;
   }
 
   section {
-      padding: 20px;
+    padding: 20px;
   }
 
   .nav-container, .index-header, .login-register-section,
@@ -343,6 +336,34 @@ button a {
       padding: 15px; 
   }
 
+  .nav-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    padding: 10px 0; 
+  }
+
+  .nav-logo img {
+    padding-top: 20px;
+      width: 70px; 
+      height: 60px; 
+  }
+
+  .nav-links ul {
+      width: 100%; 
+  }
+
+  .nav-links ul li {
+      margin: 10px 0;
+      padding: 0 5px; 
+      font-size: 16px;
+  }
+
+  .nav-messages {
+      width: 100%;
+      margin-top: 10px; 
+  }
   .post-detail-section{
     margin: 0;
   }
@@ -422,39 +443,7 @@ button a {
     padding-top: 5px;
     font-size: 12px;
     margin-left: 10px;
-  }
-
-  .nav-container {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    padding: 10px 0; 
-}
-
-.nav-logo img {
-  padding-top: 20px;
-    width: 70px; 
-    height: 60px; 
-}
-
-.nav-links ul {
-    width: 100%; 
-}
-
-.nav-links ul li {
-    margin: 10px 0;
-    padding: 0 5px; 
-    font-size: 16px;
-}
-
-.nav-messages {
-    width: 100%;
-    margin-top: 10px; 
-}
-
-.alertClose {
     float: right;
     cursor: pointer;
-}
+  }
 }
