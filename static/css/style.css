@@ -98,7 +98,7 @@ ul li a:hover {
   background-color: #1ABC9C;
   text-align: center;
   color: #fff;
-  padding: 60px;
+  padding: 60px 280px;
 }
 
 /*******************/
@@ -123,7 +123,7 @@ footer{
   color: #fff;
 }
 
-footer h4{
+footer h3{
   margin: 0;
   padding-bottom: 35px;
   text-transform: uppercase;
@@ -211,6 +211,12 @@ label {
 
 .icon-color{
   color: black;
+  font-size: 20px;
+}
+
+.edit-delete-button{
+  width: 40px;
+  height: 40px;
 }
 
 .post-detail-section{
@@ -218,10 +224,7 @@ label {
   margin-right: 150px;
 }
 
-button a {
-  text-decoration: none;
-  color: white;
-}
+
 
 /******* ALERT MESSAGES ********/
 
@@ -307,7 +310,7 @@ button a {
 
 .button {
   background-color: #1ABC9C; 
-  color: white; 
+  color: #04201A; 
   padding: 15px 20px;
   font-size: 20px; 
   border: none; 
@@ -315,6 +318,7 @@ button a {
   cursor: pointer; 
   font-size: 20px;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 .button:hover {
@@ -324,4 +328,19 @@ button a {
 .margin-section{
   margin-left: 800px;
   margin-right: 800px;
+}
+
+button a {
+  text-decoration: none;
+  color: #04201A;
+}
+
+.yes-no-button{
+  width: 35px;
+}
+
+
+
+.textarea{
+  font-size: 25px;
 }

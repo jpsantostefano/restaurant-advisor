@@ -16,29 +16,29 @@
         <!-- Information -->
         <div>
             <div>
-                <h4>First Name:</h4>
+                <h3>First Name:</h3>
                 <p>{{ profile.first_name }}</p>
             </div>
             <div>
-                <h4>Last Name:</h4>
+                <h3>Last Name:</h3>
                 <p>{{ profile.last_name }}</p>
             </div>
             <div>
-                <h4>Instagram:</h4>
+                <h3>Instagram:</h3>
                 <p>{{ profile.instagram }}</p>
             </div>
             <div>
-                <h4>Email:</h4>
+                <h3>Email:</h3>
                 <p>{{ profile.email }}</p>
             </div>
             <div>
-                <h4>Image: </h4>
+                <h3>Image: </h3>
             </div>
             {% if profile.image %}
             <img src="{{ profile.image.url }}" width="200px" height="200px" alt="profile-image">
         {% endif %}
         <br>
-        <button class="button"><a href="{% url 'edit_profile' request.user.id %}">Edit profile</a></button>
+        <button class="button" aria-label="submit"><a href="{% url 'edit_profile' request.user.id %}">Edit profile</a></button>
         </div>
         
     </div>
