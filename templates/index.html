@@ -12,10 +12,13 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
     </head>
     
         
-    <body>
+    <body class="lexend-deca-title">
         <!-- Navigation--> 
         <nav>
             <div class="nav-container">
@@ -27,10 +30,16 @@
                 <!-- ALERT MESSAGES -->
                 <div class="nav-messages">
                     {% for message in messages %}
-                        <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                        {{ message | safe }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <label>
+                        <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+                        <div class="alert notice">
+                          <span class="alertClose">X</span>
+                          <span class="alertText">{{ message | safe }}
+                          <br class="clear"/></span>
                         </div>
+                    </label>
+                        
+                        
                     {% endfor %}
                 </div> 
                 
@@ -68,7 +77,7 @@
         </header>
 
         <!--Section-->
-        <section>
+        <section >
             <h2 class="selected-restaurants">Selected Restaurants</h2>
             <!--Grid Items-->
             <div class="index-grid">

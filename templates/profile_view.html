@@ -3,7 +3,7 @@
 
 <!-- PROFILE SECTION-->
 <section>
-    <div>
+    <div class="info-section edit-comment-profile-section">
         <!-- Contact Section Heading-->
         <h2 class="section-title">{{ profile.user.username }}'s Profile</h2>
         <!-- Icon Divider-->
@@ -14,7 +14,7 @@
         </div>
 
         <!-- Information -->
-        <div class="info-section">
+        <div>
             <div>
                 <h4>First Name:</h4>
                 <p>{{ profile.first_name }}</p>
@@ -40,6 +40,8 @@
         <br>
         <button><a href="{% url 'edit_profile' request.user.id %}">Edit profile</a></button>
         </div>
+        
     </div>
+    
 </section>      
 {% endblock content %}
