@@ -16,8 +16,8 @@
     </div>
 </section>
 {% else %}
-<section class="login-section">
-
+<section>
+    <div  class="login-section">
         <!-- Contact Section Heading-->
         <h2 class="section-title">Log In</h2>
         <!-- Icon Divider-->
@@ -30,7 +30,6 @@
         <!-- Contact Section Form-->
 
         <div class="form-container">
-            <div class="form-subcontainer">
             <form  method="POST" action="{% url 'login' %}">
             {% csrf_token %}
                 
@@ -48,11 +47,10 @@
                 <div>
                 <button type="submit">Login</button>
                 </div>
-            
-                <p>If you have not created an account yet, then please <a href="{% url 'register' %}">sign up </a>first.</p>
-            </form>
+            </form> 
         </div>
-        </div>
+        <p class="question">If you have not created an account yet, then please <a href="{% url 'register' %}">sign up </a>first.</p>
+    </div>
 </section>
 {% endif %}
 {% endblock content %}
