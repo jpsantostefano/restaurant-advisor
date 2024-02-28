@@ -179,6 +179,14 @@ button {
   justify-content: center;
 }
 
+.edit-comment-section{
+  height: 63vh;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+  text-align: center;
+}
+
 .question {
   text-align: center;
 }
@@ -189,4 +197,9 @@ button {
 
 .icon-color{
   color: black;
+}
+
+.post-detail-section{
+  margin-left: 150px;
+  margin-right: 150px;
 }
