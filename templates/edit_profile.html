@@ -2,8 +2,8 @@
 {% block content %}
 
 <!-- Contact Section-->
-<section>
-    <div class="edit-comment-profile-section info-section">
+<section class="margin-section">
+    <div class="profile-section info-section height-section">
         <!-- Contact Section Heading-->
         <h2 class="section-title">Edit Profile</h2>
         <!-- Icon Divider-->
@@ -18,7 +18,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <div>
-                <button type="submit">Save Changes</button>
+                <button class="button" type="submit">Save Changes</button>
             </div>
         </form>
     </div>
