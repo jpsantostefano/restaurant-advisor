@@ -35,7 +35,7 @@
                 <h3>Image: </h3>
             </div>
             {% if profile.image %}
-            <img src="{{ profile.image.url }}" width="200px" height="200px" alt="profile-image">
+            <img class="img-mobile" src="{{ profile.image.url }}" width="200px" height="200px" alt="profile-image">
         {% endif %}
         <br>
         <button class="button" aria-label="submit"><a href="{% url 'edit_profile' request.user.id %}">Edit profile</a></button>

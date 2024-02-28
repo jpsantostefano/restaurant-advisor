@@ -323,8 +323,138 @@ button a {
   width: 70px;
 }
 
-
-
 .textarea{
   font-size: 25px;
+}
+
+
+@media screen and (max-width: 480px) {
+  body, html {
+      font-size: 12px;
+  }
+
+  section {
+      padding: 20px;
+  }
+
+  .nav-container, .index-header, .login-register-section,
+  .edit-comment-profile-section, .profile-section,
+  .height-section, .margin-section, .info-section {
+      padding: 15px; 
+  }
+
+  .post-detail-section{
+    margin: 0;
+  }
+
+  .index-grid {
+      display: block; 
+  }
+
+  .form-container, .info-section {
+      flex-direction: column; 
+  }
+
+  .login-register-input {
+      font-size: 10px;
+      height: 10px;
+      width: auto;
+  }
+
+  .question{
+    font-size: 10px;
+  }
+
+  .margin-section{
+    margin: 0;
+    padding-top: 30px;
+    height: 115vh;
+  }
+
+  .button {
+    font-size: 12px;
+    padding: 8px;
+
+  }
+
+  .yes-button{
+    width: 35px;
+  }
+
+  .edit-delete-button{
+    width: 25px;
+    height: 25px;
+  }
+
+  .icon-color{
+    font-size: 15px;
+  }
+
+  img {
+      max-width: 100%;
+      height: auto;
+  }
+
+  .img-mobile{
+    height: 50px;
+    width: 50px;
+  }
+
+  .section-title{
+    font-size: 20px;
+  }
+
+  .textarea{
+    height: 50px;
+    width: 250px;
+    font-size: 12px;
+  }
+
+  .alertText {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .alertClose {
+    float: right;
+    padding-top: 5px;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  .nav-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    padding: 10px 0; 
+}
+
+.nav-logo img {
+  padding-top: 20px;
+    width: 70px; 
+    height: 60px; 
+}
+
+.nav-links ul {
+    width: 100%; 
+}
+
+.nav-links ul li {
+    margin: 10px 0;
+    padding: 0 5px; 
+    font-size: 16px;
+}
+
+.nav-messages {
+    width: 100%;
+    margin-top: 10px; 
+}
+
+.alertClose {
+    float: right;
+    cursor: pointer;
+}
 }
