@@ -2,9 +2,9 @@
 {% block content %}
 
 <!-- POST -->
-<section class="page-section post-detail portfolio" id="portfolio">
-    <div class="container">
-        <h1 class="title">{{ post.title }}</h1>
+<section>
+    <div>
+        <h1>{{ post.title }}</h1>
         {% if post.image %}
         <img src="{{ post.image.url }}" width="300px" height="200px">
         {% endif %}
@@ -13,12 +13,12 @@
         <hr>
 
         <!-- COMMENTS -->
-        <h2 class="subtitle">Comments</h2>
+        <h2>Comments</h2>
 
         {% for comment in post.comments.all %}
-        <div class="comment-content">
+        <div class="comments">
             {% if profile.image %}
-            <img src="{{ profile.image.url }}" width="200px" height="200px" alt="restaurant-image">
+            <img src="{{ profile.image.url }}" width="200px" height="200px" alt="profile-picture">
             {% endif %}
             <strong> {{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
             <br>
@@ -27,31 +27,30 @@
             {% if comment.name == user %}
 
             <!--Edit comment -->
-            <button><a class="nav-link px-0" href="{% url 'edit_comment' comment.id %}"><i class="fa-regular fa-pen-to-square"></i></a></button>
+            <button><a href="{% url 'edit_comment' comment.id %}"><i class="fa-regular fa-pen-to-square icon-color"></i></a></button>
 
             <!--Delete comment -->
-            <button><a class="nav-link px-0" href="{% url 'delete_comment' comment.id %}"><i class="fa-solid fa-trash"></i></a></button>
+            <button><a href="{% url 'delete_comment' comment.id %}"><i class="fa-solid fa-trash icon-color"></i></a></button>
             {% endif %}
             {% endif %}
         </div>
                     
         {% empty %}
-        <div class="notification">
+        <div>
             <p>No comments yet!</p>
         </div>
         {% endfor %}
         <hr>
 
         <!-- ADD COMMENT -->
-        <h2 class="subtitle">Add a comment</h2>
-        <br>
+        <h2>Add a comment</h2>
         <form method="POST" action=".">
             {% if user.is_authenticated %}
             {% csrf_token %}
             {{ form.body }}
-            <div class="field">
-                <div class="control">
-                    <button class="btn btn-primary btn-xl">Submit</button>
+            <div>
+                <div>
+                    <button>Submit</button>
                 </div>
             </div>
             {% else %}
