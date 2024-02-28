@@ -5,7 +5,7 @@
     <div class="post-detail-section">
         <h1>{{ post.title }}</h1>
         {% if post.image %}
-        <img src="{{ post.image.url }}" width="300px" height="200px" alt="restaurant-picture">
+        <img src="{{ post.image.url }}" width="300" height="200" alt="restaurant-picture">
         {% endif %}
         <p><strong>{{ post.intro }}</strong></p>
         <p>{{ post.body }}</p>
@@ -15,7 +15,7 @@
         {% for comment in post.comments.all %}
             <div class="comments">
                 {% if profile.image %}
-                <img src="{{ profile.image.url }}" width="200px" height="200px" alt="profile-picture">
+                <img src="{{ profile.image.url }}" width="200" height="200" alt="profile-picture">
                 {% endif %}
                 <strong> {{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
                 <br>
