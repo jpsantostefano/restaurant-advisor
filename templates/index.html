@@ -4,20 +4,21 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="description" content="restaurant advisor"/>
+        <meta name="author" content="Juan Santostefano"/>
         <title>Restaurant-Advisor</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'css/img/favicon.ico' %}"/>
-        <!-- Font Awesome icons (free version)-->
+        <!-- Icons -->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- CSS -->
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
     </head>
     
-        
     <body class="lexend-deca-title">
         <!-- Navigation--> 
         <nav>
@@ -76,14 +77,14 @@
         <!--Section-->
         <section >
             <h2 class="selected-restaurants">Selected Restaurants</h2>
-            <!--Grid Items-->
+            <!--Grid post-->
             <div class="index-grid">
                 {% for post in posts %}         
                 <div class="restaurant-container">
                         <h2>{{ post.title }}</h2>
                         <br>
                         {% if post.image %}
-                        <img src="{{ post.image.url }}" width="300px" height="200px" alt="restaurant-image">
+                        <img src="{{ post.image.url }}" width="300px" height="200px" alt="restaurant-image" class="lazyload">
                         {% endif %}
                         <p>{{ post.intro }}</p>
                         <a href="{% url 'post_detail' post.slug %}">Reviews</a>
