@@ -1,10 +1,12 @@
 {% extends 'index.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-<section class="page-section" id="login-form">
-    <div class="container">
-        <!-- Contact Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary-login-register .mb-0 login-h2">You're already Logged In!</h2>
+<section>
+<div class="login-section">
+    <div class="section-title">
+        <div>
+        <h2>You're already Logged In!</h2>
+        </div>
         <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
@@ -13,13 +15,11 @@
         </div>
     </div>
 </section>
-
 {% else %}
-<!-- Log In Section-->
-<section class="page-section" id="login-form">
-    <div class="container">
+<section class="login-section">
+
         <!-- Contact Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary-login-register .mb-0 login-h2">Log In</h2>
+        <h2 class="section-title">Log In</h2>
         <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
@@ -28,35 +28,31 @@
         </div>
 
         <!-- Contact Section Form-->
-    <div class="row justify-content-center">
-        <div class="col-lg-8 col-xl-7">
 
+        <div class="form-container">
+            <div class="form-subcontainer">
             <form  method="POST" action="{% url 'login' %}">
             {% csrf_token %}
-
+                
                 <!-- Username input-->
-                <div class="form-floating mb-3">
-                    <input class="form-control" type="text" name="username" placeholder=""/>
-                    <label for="usuario">Username</label>
-                    <div class="invalid-feedback" data-sb-feedback="name:required">A username is required.</div>
-                </div>
-        
+              
+                    <label for="usuario">Username:</label>
+                    <input type="text" name="username" placeholder="Type your username"/>
+                
                 <!-- Password input-->
-                <div class="form-floating mb-3">
-                    <input class="form-control" type="password" name="password" placeholder=""/>
-                    <label for="pass">Password</label>
-                    <div class="invalid-feedback" data-sb-feedback="password:required">A password is required.</div>
-                </div>
+              
+                    <label for="pass">Password:</label>
+                    <input type="password" name="password" placeholder="Type your password"/>
 
                 <!-- Login Button-->
-                <button class="btn btn-primary btn-xl" type="submit">Login</button>
-                <br>
-                <br>
+                <div>
+                <button type="submit">Login</button>
+                </div>
+            
                 <p>If you have not created an account yet, then please <a href="{% url 'register' %}">sign up </a>first.</p>
-
             </form>
         </div>
-    </div>
+        </div>
 </section>
 {% endif %}
 {% endblock content %}

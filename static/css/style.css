@@ -1,12 +1,14 @@
 body, html {
   margin: 0;
   padding: 0;
-  overflow: auto;
 }
+
 
 section{
   padding: 50px;
 }
+
+/***********NAVBAR ************/
 
 .nav-container {
   display: flex;
@@ -136,4 +138,43 @@ footer a:hover{
   color: #fff;
   background-color: #1A252F;
   padding: 20px;
+}
+
+/*********************/
+.section-title{
+  text-align: center;
+  text-transform: uppercase;
+  color: #2C3D50;
+}
+
+
+/******************/
+.form-container {
+  display: flex; 
+  justify-content: center; 
+  
+}
+
+label {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: block;
+}
+
+button {
+  margin-top: 10px;
+}
+
+.login-section{
+  height: 63vh;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+}
+
+.register-section{
+  height: 63vh;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
 }

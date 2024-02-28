@@ -2,9 +2,9 @@
 {% block content %}
 
 <!-- Contact Section-->
-<section class="page-section portfolio register-section">
+<section class="register-section">
     <!-- Contact Section Heading-->
-    <h2 class="page-section-heading text-center text-uppercase text-secondary-login-register mb-0-register-login">Register</h2>
+    <h2 class="section-title">Register</h2>
     
     <!-- Icon Divider-->
     <div class="divider-custom">
@@ -14,39 +14,38 @@
     </div>
 
     <!-- Contact Section Form-->
-    <div class="row justify-content-center">
-        <div class="col-lg-8 col-xl-7">
+
+        <div>
             <form method="POST" action="/register/">
             {% csrf_token %}
 
                 <!-- Name input-->
-                <div class="form-floating mb-3">
-                    <input class="form-control" id="username" name="username" type="text" placeholder="Enter your name..." required />
-                    <label for="name">Username</label>
-                    <div class="invalid-feedback" data-sb-feedback="name:required">A username is required.</div>
+                <div>
+                    <label for="name">Username:</label>
+                    <input id="username" name="username" type="text" placeholder="Enter your username" required />
+                    
                 </div>
               
                 <!-- Password input-->
-                <div class="form-floating mb-3">
-                    <input class="form-control" id="password" name="password" type="password" placeholder="" required/>
-                    <label for="password">Password</label>
-                    <div class="invalid-feedback" data-sb-feedback="phone:required">A password is required.</div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input class="form-control" id="password" name="password" type="password" placeholder="Enter your password" required/>
+                    
                 </div>
 
                 <!-- Password again input-->
-                <div class="form-floating mb-3">
-                    <input class="form-control" type="password" id="password2" name="password2" placeholder="" required/>
-                    <label for="password2">Password (again)</label>
-                    <div class="invalid-feedback" data-sb-feedback="phone:required">A password is required.</div>
+                <div>  
+                    <label for="password2">Password (again):</label>
+                    <input class="form-control" type="password" id="password2" name="password2" placeholder="Enter your password again" required/>
                 </div>
                 
                 <!-- Submit Button-->
-                <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button>
+                <button type="submit">Submit</button>
             </form>
             <br>
             <p>Do you already have an account?<a href="{% url 'login' %}">Sign in</a></p>
         </div>
-    </div>
+
 </section>
 
 {% endblock content %}
