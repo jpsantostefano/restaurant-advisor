@@ -7,9 +7,65 @@ The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.her
 
 ### Existing Features:
 
-#### Home Page: 
+#### Home Page Desktop: 
 
 ![Desktop Home](static/css/img/features/index-desktop.jpg)
+
+#### Header Mobile: 
+
+![Header Mobile](static/css/img/features/header-mobile.jpg)
+
+#### Home Section Mobile: 
+
+![Home Section Mobile](static/css/img/features/home-section-mobile.jpg)
+
+#### Desktop Navigation Bar:
+
+![Navbar](static/css/img/features/navbar-desktop.jpg)
+
+#### Mobile Navigation Bar:
+
+![Navbar-mobile](static/css/img/features/mobile-nav.jpg)
+
+#### Social Media:
+
+![Social Media](static/css/img/features/socialmedia-desktop.jpg)
+
+#### Copyright:
+
+![Copyright](static/css/img/features/copyright.jpg)
+
+#### Footer Mobile:
+
+![Footer Mobile](static/css/img/features/footer-mobile.jpg)
+
+#### Alert messages:
+
+![Alert messages](static/css/img/features/alerts.jpg)
+
+##### Desktop Post detail :
+
+![Desktop Post](static/css/img/features/postdetail-desktop.jpg)
+
+##### Mobile Post detail :
+
+![Mobile Post](static/css/img/features/postdetail-mobile.jpg)
+
+##### Comment Section:
+
+![Desktop Post](static/css/img/features/comment-section.jpg)
+
+##### Add Comment Section:
+
+![Desktop Post](static/css/img/features/add-comment.jpg)
+
+##### Comment Section Mobile:
+
+![Comment Section Mobile](static/css/img/features/comments-mobile.jpg)
+
+#### Edit and Delete button:
+
+![Edit and Delete](static/css/img/edit-delete-button.jpg)
 
 ##### Login Page:
 
@@ -27,10 +83,6 @@ The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.her
 
 ![Desktop Edit Profile](static/css/img/features/edit-profile.jpg)
 
-##### Post Page:
-
-![Desktop Post](static/css/img/features/postdetail-desktop.jpg)
-
 ##### Edit Comment Page:
 
 ![Desktop Edit Comment](static/css/img/features/edit-comment.jpg)
@@ -38,26 +90,6 @@ The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.her
 ##### Delete Comment Page:
 
 ![Desktop Delete Comment](static/css/img/features/delete-comment.jpg)
-
-#### Navigation Bar:
-
-![Navbar](static/css/img/features/navbar-desktop.jpg)
-
-#### Social Media:
-
-![Social Media](static/css/img/features/socialmedia-desktop.jpg)
-
-#### Copyright:
-
-![Copyright](static/css/img/features/copyright.jpg)
-
-#### Alert messages:
-
-![Alert messages](static/css/img/features/alerts.jpg)
-
-#### Edit and Delete button:
-
-![Edit and Delete](static/css/img/edit-delete-button.png)
 
 ### Features Left to Implement
 - To give likes to the post and comments.
