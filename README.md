@@ -9,59 +9,55 @@ The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.her
 
 #### Home Page: 
 
-![Desktop Home](static/css/img/home-page.png)
+![Desktop Home](static/css/img/features/index-desktop.jpg)
 
-##### Log in Page:
+##### Login Page:
 
-![Desktop Log in](static/css/img/login-page.png)
+![Login](static/css/img/features/login.jpg.jpg)
 
 ##### Sign Up Page:
 
-![Desktop Register](static/css/img/sign-up-page.png)
+![Desktop Register](static/css/img/features/register.jpg)
 
 ##### Profile Page:
 
-![Desktop Profile](static/css/img/profile-page.png)
+![Desktop Profile](static/css/img/features/profile.jpg)
 
 ##### Edit Profile Page:
 
-![Desktop Edit Profile](static/css/img/edit-profile-page.png)
+![Desktop Edit Profile](static/css/img/features/edit-profile.jpg)
 
 ##### Post Page:
 
-![Desktop Post](static/css/img/post-page.png)
+![Desktop Post](static/css/img/features/postdetail-desktop.jpg)
 
 ##### Edit Comment Page:
 
-![Desktop Edit Comment](static/css/img/edit-comment-page.png)
+![Desktop Edit Comment](static/css/img/features/edit-comment.jpg)
 
 ##### Delete Comment Page:
 
-![Desktop Delete Comment](static/css/img/delete-comment-page.png)
+![Desktop Delete Comment](static/css/img/features/delete-comment.jpg)
 
 #### Navigation Bar:
 
-![Navbar](static/css/img/nav-bar.png)
+![Navbar](static/css/img/features/navbar-desktop.jpg)
 
 #### Social Media:
 
-![Social Media](static/css/img/social-media.png)
+![Social Media](static/css/img/features/socialmedia-desktop.jpg)
 
 #### Copyright:
 
-![Copyright](static/css/img/copyright.png)
+![Copyright](static/css/img/features/copyright.jpg)
 
 #### Alert messages:
 
-![Alert messages](static/css/img/alert-messages.png)
+![Alert messages](static/css/img/features/alerts.jpg)
 
 #### Edit and Delete button:
 
 ![Edit and Delete](static/css/img/edit-delete-button.png)
-
-#### Blog Post Details:
-
-![Blog Post Details](static/css/img/delete-comment-page.png)
 
 ### Features Left to Implement
 - To give likes to the post and comments.
