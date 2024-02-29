@@ -3,35 +3,73 @@ This website gives you the opportunity to share your dining experiences at caref
 
 The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.herokuapp.com/)
 
-## Table of Contents
-+ [UX](#ux "UX")
-  + [Site Purpose](#site-purpose "Site Purpose")
-  + [Site Goal](#site-goal "Site Goal")
-  + [Audience](#audience "Audience")
-  + [Communication](#communication "Communication")
-  + [Current User Goals](#current-user-goals "Current User Goals")
-  + [New User Goals](#new-user-goals "New User Goals")
-+ [User Stories](#user-stories "User Stories")
-  + [Admin stories](#admin-stories "Admin stories")
-  + [Artist stories](#artist-stories "Artist stories")
-  + [Visitor stories](#visitor-stories "Visitor stories")
-+ [Design](#design "Design")
-  + [Colour Scheme](#colour-scheme "Colour Scheme")
-  + [Typography](#typography "Typography")
-  + [Imagery](#imagery "Imagery")
-+ [Features](#features "Features")
-  + [Existing Features](#existing-features "Existing Features")
-  + [C.R.U.D](#crud "C.R.U.D")
-+ [Testing](#testing "Testing")
-  + [Validator Testing](#validator-testing "Validator Testing")
-  + [Unfixed Bugs](#unfixed-bugs "Unfixed Bugs")
-+ [Technologies Used](#technologies-used "Technologies Used")
-  + [Main Languages Used](#main-languages-used "Main Languages Used")
-  + [Frameworks, Libraries & Programs Used](#frameworks-libraries-programs-used "Frameworks, Libraries & Programs Used")
-+ [Deployment](#deployment "Deployment")
-+ [Credits](#credits "Credits")
-  + [Content](#content "Content")
-  + [Media](#media "Media")
+## Features
+
+### Existing Features:
+
+#### Home Page: 
+
+![Desktop Home](static/css/img/home-page.png)
+
+##### Log in Page:
+
+![Desktop Log in](static/css/img/login-page.png)
+
+##### Sign Up Page:
+
+![Desktop Register](static/css/img/sign-up-page.png)
+
+##### Profile Page:
+
+![Desktop Profile](static/css/img/profile-page.png)
+
+##### Edit Profile Page:
+
+![Desktop Edit Profile](static/css/img/edit-profile-page.png)
+
+##### Post Page:
+
+![Desktop Post](static/css/img/post-page.png)
+
+##### Edit Comment Page:
+
+![Desktop Edit Comment](static/css/img/edit-comment-page.png)
+
+##### Delete Comment Page:
+
+![Desktop Delete Comment](static/css/img/delete-comment-page.png)
+
+#### Navigation Bar:
+
+![Navbar](static/css/img/nav-bar.png)
+
+#### Social Media:
+
+![Social Media](static/css/img/social-media.png)
+
+#### Copyright:
+
+![Copyright](static/css/img/copyright.png)
+
+#### Alert messages:
+
+![Alert messages](static/css/img/alert-messages.png)
+
+#### Edit and Delete button:
+
+![Edit and Delete](static/css/img/edit-delete-button.png)
+
+#### Blog Post Details:
+
+![Blog Post Details](static/css/img/delete-comment-page.png)
+
+### Features Left to Implement
+- To give likes to the post and comments.
+- To add the profile picture next to the username.
+- To add new restaurants with the admin's approval.
+- To add pictures on the comments
+- Password reset
+
 
 ## UX
 
@@ -119,72 +157,7 @@ Not all stories have been implemented. Some have been left for future implementa
 ## Design
 - Original template: https://startbootstrap.com/theme/freelancer
 
-## Features
 
-### Existing Features:
-
-##### Home Page: 
-
-![Desktop Home](static/css/img/home-page.png)
-
-##### Log in Page:
-
-![Desktop Log in](static/css/img/login-page.png)
-
-##### Sign Up Page:
-
-![Desktop Register](static/css/img/sign-up-page.png)
-
-##### Profile Page:
-
-![Desktop Profile](static/css/img/profile-page.png)
-
-##### Edit Profile Page:
-
-![Desktop Edit Profile](static/css/img/edit-profile-page.png)
-
-##### Post Page:
-
-![Desktop Post](static/css/img/post-page.png)
-
-##### Edit Comment Page:
-
-![Desktop Edit Comment](static/css/img/edit-comment-page.png)
-
-##### Delete Comment Page:
-
-![Desktop Delete Comment](static/css/img/delete-comment-page.png)
-
-#### Navigation Bar:
-
-![Navbar](static/css/img/nav-bar.png)
-
-#### Social Media:
-
-![Social Media](static/css/img/social-media.png)
-
-#### Copyright:
-
-![Copyright](static/css/img/copyright.png)
-
-#### Alert messages:
-
-![Alert messages](static/css/img/alert-messages.png)
-
-#### Edit and Delete button:
-
-![Edit and Delete](static/css/img/edit-delete-button.png)
-
-#### Blog Post Details:
-
-![Blog Post Details](static/css/img/delete-comment-page.png)
-
-### Features Left to Implement
-- To give likes to the post and comments.
-- To add the profile picture next to the username.
-- To add new restaurants with the admin's approval.
-- To add pictures on the comments
-- Password reset
 
 ## Testing
 #### Manual Testing
