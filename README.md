@@ -1,6 +1,8 @@
 # Restaurant Advisor
 This website gives you the opportunity to share your dining experiences at carefully chosen restaurants. You can leave detailed comments and opinions about the food, service and atmosphere of each restaurant, helping other users make informed decisions about where to eat. Discover new culinary gems and share your recommendations on this community restaurant review platform!
 
+![Mockup](static/css/img/all-devices-black.png)
+
 The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.herokuapp.com/)
 
 ## Features
@@ -11,33 +13,28 @@ The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.her
 
 ![Desktop Home](static/css/img/features/index-desktop.jpg)
 
-#### Header Mobile: 
-
-![Header Mobile](static/css/img/features/header-mobile.jpg)
-
-#### Home Section Mobile: 
-
-![Home Section Mobile](static/css/img/features/home-section-mobile.jpg)
-
 #### Desktop Navigation Bar:
 
 ![Navbar](static/css/img/features/navbar-desktop.jpg)
 
-#### Mobile Navigation Bar:
-
-![Navbar-mobile](static/css/img/features/mobile-nav.jpg)
+- Logo: Redirects to index.html
+- Home: Redirects to index.html
+- Login: Redirects to login.html
+- Sign Up: Redirects to registration.html
+- Profile: Redirects to profile_view.html
 
 #### Social Media:
 
 ![Social Media](static/css/img/features/socialmedia-desktop.jpg)
 
+- Facebook logo: Open a new tab to www.facebook.com
+- Twitter logo: Open a new tab to www.twitter.com
+- Linkedin logo: Open a new tab to www.linkedin.com
+- Youtube logo: Open a new tab to www.youtube.com
+
 #### Copyright:
 
 ![Copyright](static/css/img/features/copyright.jpg)
-
-#### Footer Mobile:
-
-![Footer Mobile](static/css/img/features/footer-mobile.jpg)
 
 #### Alert messages:
 
@@ -47,65 +44,179 @@ The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.her
 
 ![Desktop Post](static/css/img/features/postdetail-desktop.jpg)
 
-##### Mobile Post detail :
-
-![Mobile Post](static/css/img/features/postdetail-mobile.jpg)
-
 ##### Comment Section:
 
 ![Desktop Post](static/css/img/features/comment-section.jpg)
+
+- You can see the user's comments
 
 ##### Add Comment Section:
 
 ![Desktop Post](static/css/img/features/add-comment.jpg)
 
-##### Comment Section Mobile:
-
-![Comment Section Mobile](static/css/img/features/comments-mobile.jpg)
+- You can add a comment
 
 #### Edit and Delete button:
 
-![Edit and Delete](static/css/img/edit-delete-button.jpg)
+![Edit and Delete](static/css/img/features/edit-delete-button.jpg)
+
+- Edit button: Redirects to edit_comment.html where You can edit your comment
+- Delete button: Redirects to delete_comment.html You can delete your comment
 
 ##### Login Page:
 
 ![Login](static/css/img/features/login.jpg.jpg)
 
+- You can Login with your username and password.
+
 ##### Sign Up Page:
 
 ![Desktop Register](static/css/img/features/register.jpg)
+
+- You can sign up with a username and password.
 
 ##### Profile Page:
 
 ![Desktop Profile](static/css/img/features/profile.jpg)
 
+- You can see all the profile information
+
 ##### Edit Profile Page:
 
 ![Desktop Edit Profile](static/css/img/features/edit-profile.jpg)
+
+- You can edit the profile information. (first name, last name, email, instagram and profile image)
 
 ##### Edit Comment Page:
 
 ![Desktop Edit Comment](static/css/img/features/edit-comment.jpg)
 
+- You can edit your comment
+
 ##### Delete Comment Page:
 
 ![Desktop Delete Comment](static/css/img/features/delete-comment.jpg)
 
-### Features Left to Implement
+- You can delete your comment
+
+#### Mobile Navigation Bar:
+
+![Navbar-mobile](static/css/img/features/mobile-nav.jpg)
+
+#### Header Mobile: 
+
+![Header Mobile](static/css/img/features/header-mobile.jpg)
+
+#### Home Section Mobile: 
+
+![Home Section Mobile](static/css/img/features/home-section-mobile.jpg)
+
+#### Footer Mobile:
+
+![Footer Mobile](static/css/img/features/footer-mobile.jpg)
+
+##### Comment Section Mobile:
+
+![Comment Section Mobile](static/css/img/features/comments-mobile.jpg)
+
+##### Mobile Post detail:
+
+![Mobile Post](static/css/img/features/postdetail-mobile.jpg)
+
+### Features Left to Implement:
 - To give likes to the post and comments.
-- To add the profile picture next to the username.
+- To add the profile picture next to the username in comments section.
 - To add new restaurants with the admin's approval.
 - To add pictures on the comments
-- Password reset
-
+- To give the option to change the user's password
 
 ## UX
 
-### Site Purpose:
-The purpose of our website is to provide food lovers with an online space where they can discover, explore and share their dining experiences. Our platform is designed to help users find exceptional restaurants and make informed decisions about where to enjoy of their meals. By allowing users to leave detailed comments and opinions, we foster the culinary community and help improve the quality of restaurants by providing valuable feedback.
-
-### Site Goal:
+### Site Goals:
 To build a platform that allows artists to easily share their work and passions with their fans, and art lovers who have yet to discover their talents. As well as to bring an engaging experience to artists and consumers alike. By having a display of artwork from a range of individuals, art-lovers will be able to easily peruse through pieces that engage them in a way that only art can.
+
+### Design Choices:
+
+#### Color Scheme
+
+![Color Scheme](static/css/img/color-scheme.jpg)
+
+#### Typography:
+
+Google Fonts: Lexend Deca
+https://fonts.google.com/specimen/Lexend+Deca?query=lexend+deca
+
+#### Imagery:
+All the photos are from Google Images except the logo that was made with Chat GPT.
+
+## User Stories
+Not all stories have been implemented. Some have been left for future implementations as the site grows and expands.
+
+### User stories:
+#### As a user:
+1. I can **Sign Up** so that **I can be able to write comments**.
+ - Story points: 3
+2. I can **edit my profile** so that **I can complete my personal information**.
+ - Story points: 3
+3. I can **write comments** so that **others client can view my review**.
+ - Story points: 3
+4. I can **edit and delete my own comments** so that **I can be able to fix any error in a comment**.
+ - Story points: 4
+5. I can **login and logout** so that **I can be able to write comments**.
+ - Story points: 2
+
+### Admin stories:
+#### As an admin:
+1. I can **submit new restaurant posts** so that **the customers can write more comments in more restaurants**.
+ - Story points: 4
+2. I can **delete post comments** so that **inappropiate comments can be deleted**.
+ - Story points: 1
+3. I can **create a log in / sign up page** so that **customers can sign up to the site**.
+ - Story points: 2
+4. I can **create a a profile per user** so that **customers can have their own profile information**.
+ - Story points: 5
+
+### Wireframes:
+
+#### Desktop
+#### Home
+
+![Home](static/css/img/wireframes/home-desktop.jpg)
+
+#### Login
+
+![Login](static/css/img/wireframes/login.jpg)
+
+#### Sign Up
+
+![Sign Up](static/css/img/wireframes/register.jpg)
+
+#### Post detail
+
+![Post detail](static/css/img/wireframes/post-detail.jpg)
+
+#### Profile
+
+![Profile](static/css/img/wireframes/profile-view.jpg)
+
+#### Edit Profile
+
+![Edit Profile](static/css/img/wireframes/edit-profile.jpg)
+
+#### Edit Comment
+
+![Edit Comment](static/css/img/wireframes/edit-comment.jpg)
+
+#### Delete Comment
+
+![Delete Comment](static/css/img/wireframes/delete-comment.jpg)
+
+#### Mobile
+
+![Home Mobile](static/css/img/wireframes/home-mobile.jpg)
+
+### Database Schema
+![Database](static/css/img/database.jpg)
 
 ### Audience:
 Our core audience is made up of individuals who are passionate about food and gastronomic exploration.
@@ -123,72 +234,51 @@ To become instantly engaged with the design of the site, and feel intrigued to e
 - To get restaurant discounts for the users.
 - That some users may aspire to become recognized food critics within the community, gaining followers and credibility in their opinions.
 
-### Database Schema
-#### Profile Model
-
-| id | Field |
-|--|--|
-|User|OneToOneField  |
-|first_name|Charfield|
-|last_name|Charfield|
-|instagram|Charfield|
-|email|EmailField|
-|profile_image|CloudinaryField|
-
-#### Post Model
-
-| id | Field |
-|--|--|
-|title|Charfield  |
-|slug|SlugField|
-|intro|TextField|
-|body|TextField|
-|image|CloudinaryField|
-
-#### Comment Model
-
-| id | Field |
-|--|--|
-|post|ForeignKey|
-|name|ForeignKey|
-|body|TextField|
-|date_added|DateTimeField|
-
-## User Stories
-Not all stories have been implemented. Some have been left for future implementations as the site grows and expands.
-
-### Admin stories:
-#### As an admin:
-1. I can **submit new restaurant posts** so that **the customers can write more comments in more restaurants**.
- - Story points: 4
-2. I can **delete post comments** so that **inappropiate comments can be deleted**.
- - Story points: 1
-3. I can **create a log in / sign up page** so that **customers can sign up to the site**.
- - Story points: 2
-4. I can **create a a profile per user** so that **customers can have their own profile information**.
- - Story points: 5
-
-### User stories:
-#### As a user:
-1. I can **Sign Up** so that **I can be able to write comments**.
- - Story points: 3
-2. I can **edit my profile** so that **I can complete my personal information**.
- - Story points: 3
-3. I can **write comments** so that **others client can view my review**.
- - Story points: 3
-4. I can **edit and delete my own comments** so that **I can be able to fix any error in a comment**.
- - Story points: 4
-5. I can **login and logout** so that **I can be able to write comments**.
- - Story points: 2
-
-
-## Design
-- Original template: https://startbootstrap.com/theme/freelancer
-
-
-
 ## Testing
-#### Manual Testing
+
+### Automated Testing
+
+#### W3C Validator
+
+![W3C Validator](static/css/img/validator/html-validator.jpg)
+
+#### Lighthouse
+
+- Desktop
+
+![Desktop Lighthouse](static/css/img/validator/lighthouse-desktop.jpg)
+
+- Mobile
+
+![Mobile Lighthouse](static/css/img/validator/lighthouse-mobile.jpg)
+
+#### WAVE
+
+![Wave](static/css/img/validator/wave.jpg)
+
+#### PEP8
+
+admin.py
+
+![admin.py](static/css/img/pep8/admin.jpg)
+
+forms.py
+
+![forms.py](static/css/img/pep8/forms.jpg)
+
+models.py
+
+![models.py](static/css/img/pep8/models.jpg)
+
+settings.py
+
+![settings.py](static/css/img/pep8/settings.jpg)
+
+views.py
+
+![views.py](static/css/img/pep8/views.jpg)
+
+### Manual Testing
 
 > Each user story was manually tested in line with intended functionality on both desktop & mobile.
 > As this project was driven by my own User Stories I  felt manual testing was applicable on all logic code.
