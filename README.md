@@ -242,6 +242,10 @@ To become instantly engaged with the design of the site, and feel intrigued to e
 
 ![W3C Validator](static/css/img/validator/html-validator.jpg)
 
+#### Jigsaw Validator
+
+![Jigsaw Validator](static/css/img/validator/css-validator.jpg)
+
 #### Lighthouse
 
 - Desktop
@@ -279,11 +283,47 @@ views.py
 ![views.py](static/css/img/pep8/views.jpg)
 
 ### Manual Testing
+#### NavBar
+| Feature | Test case | Outcome |
+|--|--|--|
+| Logo | Click on the Logo | User is brought to the Home Page
+| Navbar home link | Click on Home link | User is brought to the Home Page |
+| Navbar home link - Hover | Hover the home link | The letters changes the color |
+| Navbar Login link | Click on Login link | User is brought to the Login Page |
+| Navbar Login link - Hover | Hover the Login link | The letters changes the color |
+| Navbar Logout link | Click on Logout link | User is logged out and brought to the Home Page |
+| Navbar Logout link - Hover | Hover the Logout link | The letters changes the color |
+| Navbar Sign Up link | Click on Sign Up link | User is brought to the Sign Up Page |
+| Navbar Sign Up link - Hover | Hover the Sign Up link | The letters changes the color |
+| Navbar Profile link | Click on Profile link | User is brought to the Profile Page |
+| Navbar Profile link - Hover | Hover the Profile link | The letters changes the color |
 
-> Each user story was manually tested in line with intended functionality on both desktop & mobile.
-> As this project was driven by my own User Stories I  felt manual testing was applicable on all logic code.
+#### Footer
+| Feature | Test case | Outcome |
+|--|--|--|
+| Footer Facebook link | Click on Facebook link | User is redirected to Facebook page on a new tab |
+| Footer Facebook link - Hover | Hover the Facebook link | The circle color background changes the color |
+| Footer Twitter link | Click on Twitter link | User is redirected to Twitter page on a new tab |
+| Footer Twitter link - Hover | Hover the Twitter link | The circle color background changes the color |
+| Footer LinkedIn link | Click on LinkedIn link | User is redirected to LinkedIn page on a new tab |
+| Footer LinkedIn link - Hover | Hover the LinkedIn link | The circle color background changes the color |
+| Footer Youtube link | Click on Youtube link | User is redirected to Youtube page on a new tab |
+| Footer Youtube link - Hover | Hover the Youtube link | The circle color background changes the color |
 
->If the intended outcome completes then this will be flagged as pass. If it does not then this is a fail.
+#### Home Section
+|--|--|--|
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+
+
+
+
 
 #### Account Registration Tests
 | Test |Result  |
@@ -347,27 +387,8 @@ views.py
 |Admin can delete any user|Pass|
 |Admin can delete any post|Pass|
 
-
-### Validator Testing
-- html files pass through the [W3C validator](https://validator.w3.org/) with no html issues found
-- Errors listed only reference {%%} & {{}} tags.
-
-- CSS files pass through the [Jigsaw validator](https://jigsaw.w3.org/css-validator/) 1149 errors found.
-
-![Desktop score](static/css/img/mobile-lighthouse.png)
-
-![Mobile score](static/css/img/desktop-lighthouse.png)
-
-- Python files passed through [PEP8CI Online](https://pep8ci.herokuapp.com/) with only lines to long issues found.
-
-- Tested the site opens in Brave without issues.
-- All social links open to external pages as intended.
-
-- Many style issues found and not to easy to edit because is a bootstrap [template](https://startbootstrap.com/previews/freelancer)
-
 ### Unfixed Bugs
-- After signing up, the user is not loggin in automatically
-- The alert messages are not dissapearing after 5 seconds.
+
 
 ## Technologies Used
 ### Main Languages Used
