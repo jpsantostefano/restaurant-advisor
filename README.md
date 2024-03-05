@@ -5,6 +5,30 @@ This website gives you the opportunity to share your dining experiences at caref
 
 The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.herokuapp.com/)
 
+## Table of Contents
+* [Features](#features)
+    * [Existing Features](#existing-features)
+    * [Features Left to Implement](#features-left-to-implement)
+* [UX](#ux)
+    * [Site Goals](#site-goals)
+    * [Design Choices](#design-choices)
+    * [User Experience](#user-experience)
+        * [As a User](#as-a-user)
+        * [As an admin](#as-an-admin)
+    * [Wireframes](#wireframes)
+    * [Database Schema](#database-schema)
+* [Testing](#testing)
+    * [Automated Testing](#automated-testing)
+    * [Manual Testing](#manual-testing)
+* [Technologies Used](#technologies-used)
+    * [Main Languages Used](#main-languages-used)
+    * [Frameworks, Libraries & Programs Used](#frameworks-libraries-&-programs-used)
+* [Deployment](#forking-the-github-repository)
+* [Credits](#credits)
+    * [Media](#media)
+
+[Back To Top](#tailors-thimble)
+
 ## Features
 
 ### Existing Features:
@@ -40,17 +64,17 @@ The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.her
 
 ![Alert messages](static/css/img/features/alerts.jpg)
 
-##### Desktop Post detail :
+#### Desktop Post detail :
 
 ![Desktop Post](static/css/img/features/postdetail-desktop.jpg)
 
-##### Comment Section:
+#### Comment Section:
 
 ![Desktop Post](static/css/img/features/comment-section.jpg)
 
 - You can see the user's comments
 
-##### Add Comment Section:
+#### Add Comment Section:
 
 ![Desktop Post](static/css/img/features/add-comment.jpg)
 
@@ -63,37 +87,37 @@ The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.her
 - Edit button: Redirects to edit_comment.html where You can edit your comment
 - Delete button: Redirects to delete_comment.html You can delete your comment
 
-##### Login Page:
+#### Login Page:
 
 ![Login](static/css/img/features/login.jpg.jpg)
 
 - You can Login with your username and password.
 
-##### Sign Up Page:
+#### Sign Up Page:
 
 ![Desktop Register](static/css/img/features/register.jpg)
 
 - You can sign up with a username and password.
 
-##### Profile Page:
+#### Profile Page:
 
 ![Desktop Profile](static/css/img/features/profile.jpg)
 
 - You can see all the profile information
 
-##### Edit Profile Page:
+#### Edit Profile Page:
 
 ![Desktop Edit Profile](static/css/img/features/edit-profile.jpg)
 
 - You can edit the profile information. (first name, last name, email, instagram and profile image)
 
-##### Edit Comment Page:
+#### Edit Comment Page:
 
 ![Desktop Edit Comment](static/css/img/features/edit-comment.jpg)
 
 - You can edit your comment
 
-##### Delete Comment Page:
+#### Delete Comment Page:
 
 ![Desktop Delete Comment](static/css/img/features/delete-comment.jpg)
 
@@ -115,11 +139,11 @@ The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.her
 
 ![Footer Mobile](static/css/img/features/footer-mobile.jpg)
 
-##### Comment Section Mobile:
+#### Comment Section Mobile:
 
 ![Comment Section Mobile](static/css/img/features/comments-mobile.jpg)
 
-##### Mobile Post detail:
+#### Mobile Post detail:
 
 ![Mobile Post](static/css/img/features/postdetail-mobile.jpg)
 
@@ -135,6 +159,22 @@ The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.her
 ### Site Goals:
 To build a platform that allows artists to easily share their work and passions with their fans, and art lovers who have yet to discover their talents. As well as to bring an engaging experience to artists and consumers alike. By having a display of artwork from a range of individuals, art-lovers will be able to easily peruse through pieces that engage them in a way that only art can.
 
+#### Audience:
+Our core audience is made up of individuals who are passionate about food and gastronomic exploration.
+
+#### Communication:
+With a post section, the users can write comments through the features of the website with an ease of navigation.
+
+#### Current User Goals:
+Some users will enjoy interacting with other food lovers, whether through comments on reviews.
+
+#### New User Goals:
+To become instantly engaged with the design of the site, and feel intrigued to explore all it has to offer.
+
+#### Future Goals:
+- To get restaurant discounts for the users.
+- That some users may aspire to become recognized food critics within the community, gaining followers and credibility in their opinions.
+
 ### Design Choices:
 
 #### Color Scheme
@@ -149,13 +189,12 @@ https://fonts.google.com/specimen/Lexend+Deca?query=lexend+deca
 #### Imagery:
 All the photos are from Google Images except the logo that was made with Chat GPT.
 
-## User Stories
+## User Experience
 Not all stories have been implemented. Some have been left for future implementations as the site grows and expands.
 
 Kanban project board: https://github.com/users/jpsantostefano/projects/3
 
-### User stories:
-#### As a user:
+### As a user:
 1. I can **Sign Up** so that **I can be able to write comments**.
  - Story points: 3
 2. I can **edit my profile** so that **I can complete my personal information**.
@@ -167,8 +206,7 @@ Kanban project board: https://github.com/users/jpsantostefano/projects/3
 5. I can **login and logout** so that **I can be able to write comments**.
  - Story points: 2
 
-### Admin stories:
-#### As an admin:
+### As an admin:
 1. I can **submit new restaurant posts** so that **the customers can write more comments in more restaurants**.
  - Story points: 4
 2. I can **delete post comments** so that **inappropiate comments can be deleted**.
@@ -229,22 +267,6 @@ Kanban project board: https://github.com/users/jpsantostefano/projects/3
 
 ### Database Schema
 ![Database](static/css/img/database.jpg)
-
-### Audience:
-Our core audience is made up of individuals who are passionate about food and gastronomic exploration.
-
-### Communication:
-With a post section, the users can write comments through the features of the website with an ease of navigation.
-
-### Current User Goals:
-Some users will enjoy interacting with other food lovers, whether through comments on reviews.
-
-### New User Goals:
-To become instantly engaged with the design of the site, and feel intrigued to explore all it has to offer.
-
-### Future Goals:
-- To get restaurant discounts for the users.
-- That some users may aspire to become recognized food critics within the community, gaining followers and credibility in their opinions.
 
 ## Testing
 
@@ -430,26 +452,20 @@ To become instantly engaged with the design of the site, and feel intrigued to e
 ### Main Languages Used
 - HTML5
 - CSS3
-- Javascript
 - Python
 - Django
 - SQL - Postgres
 
 ### Frameworks, Libraries & Programs Used
-- Google Fonts - for the font families: 
-- Font Awesome - to add icons to the social links in the footer element.
-- GitPod - to create my html files & styling sheet before pushing the project to Github.
-- GitHub - to store my repository for submission.
-- Favicon - to provide the code & image for the icon in the tab bar.
-- Django
-- Bootstrap
-
-### Installed Packages:
-- 'django<4' gunicorn
-- dj_database_url psycopg2
-- dj3-cloudinary-storage
-- django-allauth 
-- Pillow
+- [Google Fonts](https://fonts.google.com/) - to import the fonts used on the website.
+- [Font Awesome](https://fontawesome.com/start) - to add icons to the social links in the footer element.
+- [GitPod](https://gitpod.io/) - to create my html files & styling sheet before pushing the project to Github.
+- [GitHub](https://github.com/) - to store my repository for submission.
+- [Favicon](https://favicon.io/) - to provide the code & image for the icon in the tab bar.
+- [Django](https://www.djangoproject.com/) - to develop the website
+- [Coolors](https://coolors.co/) - to select the colour pallette for the site.
+- [CloudConvert](https://cloudconvert.com/jpg-to-webp) - to convert images to .webp format.
+- [Balsamiq](https://balsamiq.com/) - to create wireframes
 
 ## Deployment
 
