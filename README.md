@@ -179,41 +179,51 @@ Not all stories have been implemented. Some have been left for future implementa
 ### Wireframes:
 
 #### Desktop
-#### Home
+<details>
+    <summary>Home</summary>
+    <img src="static/css/img/wireframes/home-desktop.jpg">
+</details>
 
-![Home](static/css/img/wireframes/home-desktop.jpg)
+<details>
+    <summary>Login</summary>
+    <img src="static/css/img/wireframes/login.jpg">
+</details>
 
-#### Login
+<details>
+    <summary>Sign Up</summary>
+    <img src="static/css/img/wireframes/register.jpg">
+</details>
 
-![Login](static/css/img/wireframes/login.jpg)
+<details>
+    <summary>Post detail</summary>
+    <img src="static/css/img/wireframes/post-detail.jpg">
+</details>
 
-#### Sign Up
+<details>
+    <summary>Profile</summary>
+    <img src="static/css/img/wireframes/profile-view.jpg">
+</details>
 
-![Sign Up](static/css/img/wireframes/register.jpg)
+<details>
+    <summary>Edit Profile</summary>
+    <img src="static/css/img/wireframes/edit-profile.jpg">
+</details>
 
-#### Post detail
+<details>
+    <summary>Edit Comment</summary>
+    <img src="static/css/img/wireframes/edit-comment.jpg">
+</details>
 
-![Post detail](static/css/img/wireframes/post-detail.jpg)
-
-#### Profile
-
-![Profile](static/css/img/wireframes/profile-view.jpg)
-
-#### Edit Profile
-
-![Edit Profile](static/css/img/wireframes/edit-profile.jpg)
-
-#### Edit Comment
-
-![Edit Comment](static/css/img/wireframes/edit-comment.jpg)
-
-#### Delete Comment
-
-![Delete Comment](static/css/img/wireframes/delete-comment.jpg)
+<details>
+    <summary>Delete Comment</summary>
+    <img src="static/css/img/wireframes/delete-comment.jpg">
+</details>
 
 #### Mobile
-
-![Home Mobile](static/css/img/wireframes/home-mobile.jpg)
+<details>
+    <summary>Home</summary>
+    <img src="static/css/img/wireframes/home-mobile.jpg">
+</details>
 
 ### Database Schema
 ![Database](static/css/img/database.jpg)
@@ -262,25 +272,30 @@ To become instantly engaged with the design of the site, and feel intrigued to e
 
 #### PEP8
 
-admin.py
+<details>
+    <summary>admin.py</summary>
+    <img src="static/css/img/pep8/admin.jpg">
+</details>
 
-![admin.py](static/css/img/pep8/admin.jpg)
+<details>
+    <summary>forms.py</summary>
+    <img src="static/css/img/pep8/forms.jpg">
+</details>
 
-forms.py
+<details>
+    <summary>models.py</summary>
+    <img src="static/css/img/pep8/models.jpg">
+</details>
 
-![forms.py](static/css/img/pep8/forms.jpg)
+<details>
+    <summary>settings.py</summary>
+    <img src="static/css/img/pep8/settings.jpg">
+</details>
 
-models.py
-
-![models.py](static/css/img/pep8/models.jpg)
-
-settings.py
-
-![settings.py](static/css/img/pep8/settings.jpg)
-
-views.py
-
-![views.py](static/css/img/pep8/views.jpg)
+<details>
+    <summary>views.py</summary>
+    <img src="static/css/img/pep8/views.jpg">
+</details>
 
 ### Manual Testing
 #### NavBar
@@ -298,6 +313,8 @@ views.py
 | Navbar Profile link | Click on Profile link | User is brought to the Profile Page |
 | Navbar Profile link - Hover | Hover the Profile link | The letters changes the color |
 
+---
+
 #### Footer
 | Feature | Test case | Outcome |
 |--|--|--|
@@ -310,10 +327,14 @@ views.py
 | Footer Youtube link | Click on Youtube link | User is redirected to Youtube page on a new tab |
 | Footer Youtube link - Hover | Hover the Youtube link | The circle color background changes the color |
 
+---
+
 #### Home Page
 | Feature | Test case | Outcome |
 |--|--|--|
 | Reviews link | Click on Reviews | User is brought to the Post detail Page
+
+---
 
 #### Post Detail Page
 | Feature | Test case | Outcome |
@@ -322,15 +343,53 @@ views.py
 | Delete comment button | Click on Delete comment button | User is redirected to Delete comment page |
 | Submit comment button | Click on Submit comment button | User post the comment wrote on textarea |
 
+---
+
+#### Edit Comment Page
+| Feature | Test case | Outcome |
+|--|--|--|
+| Save Changes button | Click on Save Changes button | User succesfully changes the comment modified on the textarea |
+| Go Back link | Click Go Back link | User is redirected to the Post detail page |
+
+---
+
+#### Delete Comment Page
+| Feature | Test case | Outcome |
+|--|--|--|
+| Yes button | Click on Yes button | User succesfully delete their comment |
+| No button | Click on No button | User is redirected to the Post detail page |
+
+---
+
 #### Login Page
 | Feature | Test case | Outcome |
 |--|--|--|
 | Login button | Click on Login button | User login to the account if the username and password value is right |
 | Sign Up link | Click on Sign Up link | User is brought to the Sign Up Page |
 
+---
 
+#### Sign Up Page
+| Feature | Test case | Outcome |
+|--|--|--|
+| Login button | Click on Login button | User login to the account if the username and password value is right |
+| Sign Up link | Click on Sign Up link | User is brought to the Sign Up Page |
 
+---
 
+#### Profile View Page
+| Feature | Test case | Outcome |
+|--|--|--|
+| Edit Profile button | Click on Edit Profile button | User is redirected to Edit profile page |
+
+---
+
+#### Edit Profile Page
+| Feature | Test case | Outcome |
+|--|--|--|
+| Save changes button | Click on Edit Profile button | User succesfully add or changes their profile information |
+
+---
 
 #### Account Registration Tests
 | Test |Result  |
@@ -338,16 +397,6 @@ views.py
 | User can create account | Pass |
 | User can log into account| Pass|
 |User can log out of account|Pass|
-
----
-
-#### User Navigation Tests
-
-| Test |Result  |
-|--|--|
-|User can access to sign up | Pass |
-|User can access to log in | Pass |
-|User access account profile page|Pass|
 |SuperUser can access admin panel|Pass|
 
 ---
@@ -360,29 +409,7 @@ views.py
 |Non logged in user cannot access profile page| Pass|
 |Non superuser cannot access admin panel|Pass|
 
----
-
-#### Comment Tests
-
-| Test |Result  |
-|--|--|
-|User can write a comment | Pass |
-|User cannot submit a comment with empty form |Pass|
-|User can edit their own comment |Pass|
-|User can delete their own comment|Pass|
-
 --- 
-
-#### Profile Tests
-
-| Test |Result  |
-|--|--|
-|User can edit / add a profile image from the profile page |Pass|
-|User can edit / add Instagram account to their account| Pass|
-|User can edit their first and last name |Pass|
-|User can add / edit their email address|Pass|
-|User cannot change their email to the same as another user |Failed|
-
 
 #### Admin Tests
 
