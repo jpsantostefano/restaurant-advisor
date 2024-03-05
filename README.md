@@ -27,7 +27,7 @@ The LIVE website can be found [HERE](https://restaurant-advisor-28670efc3ab4.her
 * [Credits](#credits)
     * [Media](#media)
 
-[Back To Top](#tailors-thimble)
+[Back To Top](#restaurant-advisor)
 
 ## Features
 
