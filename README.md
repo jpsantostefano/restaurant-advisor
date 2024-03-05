@@ -310,16 +310,23 @@ views.py
 | Footer Youtube link | Click on Youtube link | User is redirected to Youtube page on a new tab |
 | Footer Youtube link - Hover | Hover the Youtube link | The circle color background changes the color |
 
-#### Home Section
+#### Home Page
+| Feature | Test case | Outcome |
 |--|--|--|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| Reviews link | Click on Reviews | User is brought to the Post detail Page
+
+#### Post Detail Page
+| Feature | Test case | Outcome |
+|--|--|--|
+| Edit comment button | Click on Edit comment button | User is redirected to Edit comment page |
+| Delete comment button | Click on Delete comment button | User is redirected to Delete comment page |
+| Submit comment button | Click on Submit comment button | User post the comment wrote on textarea |
+
+#### Login Page
+| Feature | Test case | Outcome |
+|--|--|--|
+| Login button | Click on Login button | User login to the account if the username and password value is right |
+| Sign Up link | Click on Sign Up link | User is brought to the Sign Up Page |
 
 
 

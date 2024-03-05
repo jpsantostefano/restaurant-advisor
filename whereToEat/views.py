@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.http import HttpResponse, HttpResponsePermanentRedirect
+from django.http import HttpResponse, HttpResponseForbidden
 from django.template import Template, Context
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
@@ -10,7 +10,7 @@ from .forms import CommentForm, ProfileForm
 from .models import Post, Comment, Profile
 from django.db import models
 from django import forms
-
+from django.contrib.auth.decorators import login_required
 
 # Home view
 
@@ -86,8 +86,12 @@ def post_detail(request, slug):
 
 
 # Comment views
+@login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
+    if comment.name != request.user:
+        return HttpResponseForbidden("You are not allowed"
+                                     " to delete this comment.")
     if request.method == 'POST':
         if request.POST.get('confirm_delete'):
             comment.delete()
@@ -96,24 +100,22 @@ def delete_comment(request, comment_id):
     return render(request, 'delete_comment.html', {'comment': comment})
 
 
+@login_required
 def edit_comment(request, comment_id):
-    if request.user.is_authenticated:
-        comment = get_object_or_404(Comment, id=comment_id)
-        # Edit comment form
-        if request.method == 'POST':
-            form = CommentForm(request.POST, request.FILES, instance=comment)
-            if form.is_valid():
-                form.save()
-                messages.success
-                (request, "You successfully edited your comment!")
-                return redirect('post_detail', slug=comment.post.slug)
-        else:
-            form = CommentForm(instance=comment)
-        return render(request, 'edit_comment.html',
-                      {'form': form, 'comment': comment})
+    comment = get_object_or_404(Comment, id=comment_id)
+    if comment.name != request.user:
+        return HttpResponseForbidden("You are not allowed"
+                                     " to edit this comment.")
+    if request.method == 'POST':
+        form = CommentForm(request.POST, request.FILES, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "You successfully edited your comment!")
+            return redirect('post_detail', slug=comment.post.slug)
     else:
-        messages.error(request, "You must be logged in to see this page.")
-        return redirect('index')
+        form = CommentForm(instance=comment)
+    return render(request, 'edit_comment.html', {'form': form,
+                                                 'comment': comment})
 
 
 # Profile views:
