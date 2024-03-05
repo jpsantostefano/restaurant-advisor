@@ -152,6 +152,8 @@ All the photos are from Google Images except the logo that was made with Chat GP
 ## User Stories
 Not all stories have been implemented. Some have been left for future implementations as the site grows and expands.
 
+Kanban project board: https://github.com/users/jpsantostefano/projects/3
+
 ### User stories:
 #### As a user:
 1. I can **Sign Up** so that **I can be able to write comments**.
@@ -450,37 +452,161 @@ To become instantly engaged with the design of the site, and feel intrigued to e
 - Pillow
 
 ## Deployment
-The site was deployed to Heroku. The steps to deploy are as follows:
-- Install Django & Gunicorn:
-```pip3 install 'django<4' gunicorn```
-- Install Django database & psycopg:
-```pip3 install dj_database_url psycopg2```
-- Install Cloudinary:
-```pip3 install dj3-cloudinary-storage```
-- Creating the requirements.txt file with the following command:
-```pip3 freeze --local > requirements.txt```
-- a django project was created using:
-```django-admin startproject restaurantAdvisor .```
-- the blog app was then created with:
-```python3 manage.py startapp whereToEat```
-- which was then added to the settings.py file within our project directory.
-- the changes were then migrated using:
-```python3 manage.py migrate```
-- navigated to [Heroku](www.heroku.com) & created a new app called print-statements.
-- added the Heroku Postgres database to the Resources tab.
-- navigated to the Settings Tab, to add the following key/value pairs to the configvars:
-1. key: SECRET_KEY | value: restaurantAdvisor
-2. key: PORT | value: 8000
-3. key: CLOUDINARY_URL | value: API environment variable
-4. key: DATABASE_URL | value: value supplied by Heroku
-- added the DATABASE_URL, SECRET_KEY & CLOUDINARY_URL to the env.py file
-- added the DATABASE_URL, SECRET_KEY & CLOUDINARY_URL to the settings.py file
-- add an import os statement for the env.py file.
-- added Heroku to the ALLOWED_HOSTS in settings.py
-- created the Procfile
-- pushed the project to Github
-- connected my github account to Heroku through the Deploy tab
-- connected my github project repository, and then clicked on the "Deploy" button
+
+This project was deployed to [Heroku](https://www.heroku.com)
+
+After installing Django and the supporting libraries, the basic Django project was created and migrated to the database. 
+
+I am using a postgreSQL database instance hosted on [ElephantSQL](https://www.elephantsql.com/) as this service is free. 
+
+<details>
+<summary>Steps taken before deploying the project to Heroku</summary>
+
+### Create the Heroku App
+
+1. Login to Heroku and click on the top right button ‘New’ on the dashboard. 
+2. Click ‘Create new app’.
+3. Give your app a unique name and select the region closest to you. 
+4. Click on the ‘Create app’ button.
+
+### Create the PostgreSQL Database
+
+1. Login to ElephantSQL and click on the top right button ‘Create New Instance’.
+2. Give your plan the name of the project and select the Tiny Turtle (Free) plan.  The ‘Tags’ field can be left empty.  
+3. Click on ‘Select Region’ and select a data centre near you and click ‘Review’.  
+4. Make sure your plan is correct and click ‘Create Instance’. 
+5. Return to the dashboard and click on this project’s instance you just created. This will open up the “Details” page where the link to the URL is displayed.  This needs to be added to the env.py file in the project’s directories.
+
+### Create the env.py file
+
+With the database created, it now needs to be connected with the project.
+
+1. In order to keep these variables hidden, it is important to create an env.py file and add it to .gitignore.  
+2. At the top **import os** and set the DATABASE_URL variable using the `os.environ` method. Add the URL copied from instance created above to it, like so:
+`os.environ[“DATABASE_URL”] = ”copiedURL”`
+3. The Django application requires a SECRET_KEY to encrypt session cookies.
+Example: `os.environ[“SECRET_KEY”] = ”secretKey”`
+
+### Modify settings.py 
+
+It is important to make the Django project aware of the env.py file and to connect the workspace to the new database. 
+
+1. Open up the settings.py file and add the following code. The if statement acts as a safety net for the application in case it is run without the env.py file.
+```
+import os
+import dj_database_url
+
+if os.path.isfile(‘env.py’):
+    import env
+```
+2. Remove the insecure secret key provided by Django and reference the variable set in the env.py file earlier, like so:
+```
+SECRET_KEY = os.environ.get(‘SECRET_KEY’)
+```
+3. You can leave DEBUG as True or set it to `'DEVELOPMENT' in os.environ` and then add the following to the env.py file:
+```
+os.environ["DEVELOPMENT"] = "True"
+```
+4. Hook up the database using the dj_database_url import added above.  The original DATABASES variable provided by Django connects the Django application to the created db.sqlite3 database within your repo.  This database is not suitable for production so add the following conditional to tell Django to use the external database if there is one or to use the local sqlite version if not. 
+```
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+```
+
+**NOTE**: If at the start of the development you are using the local db.sqlite3, make sure to add it to the .gitignore file, so as not to make the mistake of pushing it to your repository.  
+
+5. Save and migrate this database structure to the newly connected postgreSQL database.  Run the migrate command in your terminal
+`python3 manage.py migrate`
+6. To make sure the application is now connected to the remote database hosted on ElephantSQL, head over to your ElephantSQL dashboard and select the newly created database instance. Select the ‘Browser’ tab on the left and click on ‘Table queries’.  This displays a dropdown field with the database structure which has been populated from the Django migrations. 
+
+### Connect the Database to Heroku
+
+1. Open up the Heroku dashboard, select the project’s app and click on the ‘Settings’ tab.
+2. Click on ‘Reveal Config Vars’ and add the DATABASE_URL with the value of the copied URL from the database instance created on ElephantSQL.
+3. Also add the SECRET_KEY with the value of the secret key added to the env.py file. 
+4. If using gitpod another key needs to be added in order for the deployment to succeed.  This is PORT with the value of 8000.
+
+### Cloudinary Setup
+
+1. Go to your [Cloudinary](https://cloudinary.com) account's dashboard and click on the ‘API environment variable’ to copy to clipboard.  This is used to connect your app to your Cloudinary account.  Add this to the env.py file in your workspace using CLOUDINARY_URL as the variable name.  Remember to remove the first part of the URL (CLOUDINARY_URL=) as this will give you a failed deployment.  
+2. Copy and paste this value into the Heroku config vars with the key CLOUDINARY_URL.
+3. In Heroku add one more temporary variable to help get the project deployed without static files.  This needs to be removed before deploying the full project.  Use DISABLE_COLLECTSTATIC as the key and ‘1’ as the value.
+4. Go to settings.py and add the Cloudinary libraries in the list of INSTALLED_APPS.  Place ‘cloudinary_storage’ above the ‘django.contrib.staticfiles’ and ‘cloudinary’ just above the main app.
+5. Scroll down the the STATIC_URL variable and add the following to instruct Django to use Cloudinary to store media and static files.
+```
+STATICFILES_STORAGE = ‘cloudinary_storage.storage.StaticHashedCloudinaryStorage’
+STATICFILES_DIRS = [os.path.join(BASE_DIR, ‘static’)]
+STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’)
+
+MEDIA_URL = ‘/media/’
+DEFAULT_FILE_STORAGE = ‘cloudinary_storage.storage.MediaHashedCloudinaryStorage’
+```
+
+### Setup the Templates Directory
+
+In settings.py, add the following under BASE_DIR 
+`TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")`
+then scroll down to the TEMPLATES variable and add the following to the value of DIRS:
+```
+'DIRS': [TEMPLATES_DIR],
+```
+
+### Add the Heroku Host Name
+
+In settings.py scroll to ALLOWED_HOSTS and add the Heroku host name.  This should be the Heroku app name created earlier followed by `.herokuapp.com`.  Add in `’localhost’` so that it can be run locally.
+```
+ALLOWED_HOSTS = [‘heroku-app-name.herokuapp.com’, ‘localhost’]
+```
+
+### Create the Directories and the Process File
+
+1. Create the media, static and templates directories at the top level next to the manage.py file. 
+2. At the same level create a new file called ‘Procfile’ with a capital ‘P’.  This tells Heroku how to run this project.  
+3. Add the following code, including the name of your project directory. 
+```
+web: gunicorn restaurantAdvisor.wsgi:application
+```
+* ‘web’ tells Heroku that this a process that should accept HTTP traffic.
+* ‘gunicorn’ is the server used.
+* ‘wsgi’, stands for web services gateway interface and is a standard that allows Python services to integrate with web servers.
+4. Save everything and push to GitHub. 
+
+</details>
+
+<details>
+<summary>First Deployment</summary>
+
+### First Deployment
+
+1. Go back to the Heroku dashboard and click on the ‘Deploy’ tab.  
+2. For deployment method, select ‘GitHub’ and search for the project’s repository from the list. 
+3. Select and then click on ‘Deploy Branch’.  
+4. When the build log is complete it should say that the app has been successfully deployed.
+5. Click on the ‘Open App’ button to view it and the Django “The install worked successfully!” page, should be displayed. 
+
+</details>
+
+<details>
+<summary>Final Deployment</summary>
+
+### Final Deployment
+
+1. When development is complete, if you had left `DEBUG = True` in the settings.py file, make sure to change it to `False`. You don't have to change anything if you had used `DEBUG = 'DEVELOPMENT' in os.environ` as your env.py file is ignored by GitHub. 
+2. Commit and push your code to your project's repository.
+3. Then open up Heroku, navigate to your project's app. Click on the 'settings' tab, open up the config vars and delete the DISABLE_COLLECTSTATIC variable. 
+4. Navigate to the 'Deploy' tab and scroll down to 'Deploy a GitHub branch'.
+5. Select the branch you want to deploy and click on the 'Deploy branch' button. When the app is deployed, you should see a message in the built log saying "Your app was successfully deployed".  Click 'View' to see the deployed app in the browser. Alternatively, you can click on the 'Open App' button at the top of the page. 
+
+</details>
 
 ## Credits
 Codemy.com Youtube Chanel [HERE](https://www.youtube.com/@Codemycom)
